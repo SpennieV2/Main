@@ -1,0 +1,166 @@
+<style>
+  .new-width-card {
+    width: 300px;
+  }
+
+  .new-width-card .card-body {
+    padding: 15px;
+  }
+
+  .new-width-card .card-body h5 {
+    font-size: 20px;
+    text-transform: uppercase
+  }
+
+  .new-width-card .card-body p {
+    font-size: 15px;
+  }
+
+  .new-width-card .card-body select {
+    padding: 10px;
+    font-size: 13px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .new-width-card .card-body a {
+    display: block;
+    font-size: 15px;
+    color: black;
+    background: transparent;
+    border: 1px solid black;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  .auto-adjust {
+    display: flex !important;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+  }
+
+  .vendor-name-section {
+    display: Flex;
+  }
+
+  /* Loader styles */
+  .loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .spinner-border {
+    width: 3rem;
+    height: 3rem;
+  }
+  .product_count{
+        padding: 90px;
+    background: black;
+    color: white;
+  }
+  .product_count h2{
+        color: white;
+    font-size: 35px;
+  }
+
+</style>
+
+<div class="product_count">
+  <h2 id="product-count"></h2>
+</div>
+
+<div id="loader" class="loader-container">
+  <div class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+
+<div class="auto-adjust" id="product-container" style="display: none;"></div>
+
+<!-- Template for product card -->
+<div id="product-template" style="display: none;">
+  <div class="card new-width-card">
+    <img class="card-img-top" alt="">
+    <div class="card-body">
+      <h5 class="card-title"></h5>
+      <div class="vendor-name-section">
+        <p>Vendor : </p>
+        <p class="vendor-name"></p>
+      </div>
+      <p class="card-text price"></p>
+      <select class="form-select variant-dropdown" style="display: none;"></select>
+      <a href="#" class="btn btn-primary add-to-cart">Add to Cart</a>
+      <a href="#" class="btn btn-primary add-to-registry">Add to Registry</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function() {
+    // Display loader
+    $('#loader').show();
+
+    $.ajax({
+      url: base_url + 'api/getProducts',
+      type: 'GET',
+      dataType: 'json',
+      success: function(data) {
+        $('#loader').hide();
+        $('#product-count').text('Total Products: ' + data.products.length);
+        $('#product-container').show();
+
+        $.each(data.products, function(index, product) {
+          var $template = $('#product-template').clone().removeAttr('id').show();
+
+          // Set image src, use placeholder image if no image is available
+          var imageUrl = product.image ? product.image.src : 'https://media.licdn.com/dms/image/C4E0BAQHqF7-3TjzAPA/company-logo_200_200/0/1673531455870?e=2147483647&v=beta&t=ryeVCNWmJfN1CceCYLCrviLCRyRfN_PjajtVUVNy0DI';
+          $template.find('.card-img-top').attr('src', imageUrl);
+          $template.find('.card-img-top').attr('alt', product.title);
+
+          $template.find('.card-title').text(product.title);
+          $template.find('.vendor-name').text(product.vendor);
+
+          if (product.variants.length > 0) {
+            $template.find('.price').text('Price: $' + product.variants[0].price);
+
+            var $dropdown = $template.find('.variant-dropdown');
+            $.each(product.variants, function(i, variant) {
+              $('<option>').val(variant.id).text(variant.title + ' - $' + variant.price).appendTo($dropdown);
+            });
+            $dropdown.show();
+          } else {
+            $template.find('.price').text('Price: N/A');
+            $template.find('.variant-dropdown').remove(); // Remove the dropdown if no variants
+          }
+
+          $template.find('.btn-add-to-cart').attr('href', '#');
+          $template.find('.btn-add-to-registry').attr('href', '#');
+
+          $template.appendTo('#product-container');
+        });
+      },
+      error: function(xhr, status, error) {
+        $('#loader').hide();
+        console.error(xhr.responseText);
+      }
+    });
+  });
+</script>
+
+
+{% schema %}
+  {
+    "name": "ProductsCard",
+    "settings": [],
+      "presets": [
+    {
+      "name": "ProductsCard",
+      "category": "Text"
+    }
+  ]
+  }
+{% endschema %}

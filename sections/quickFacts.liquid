@@ -1,0 +1,95 @@
+<style>
+  .quickFacts{
+    display: flex;
+    gap: 40px;
+    padding: 20px;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    background: #f6f1eb !important;
+}
+  @media screen and (max-width: 767px) {
+    .quickFacts{display: block;}
+  }
+</style>
+
+<div id="quickFacts" class="quickFacts">
+  <h3>{{ section.settings.heading }}</h3>
+  <h3>Products listed in your registry : <span><b id="registryCount">0</b></span></h3>
+  <h3>Products purchased from your registry : <span  ><b id="purchasedCount">0</b></span></h3>
+</div>
+<script>
+ $(document).ready(function () {
+    const get_registery_id = localStorage.getItem('registery_id');
+    showLoader();
+    var form = new FormData();
+    form.append("registery_id", get_registery_id);
+
+    var settings = {
+      "url": base_url + "api/getOrdersCount/" + get_registery_id,
+      "method": "GET",
+      "timeout": 0,
+      "processData": false,
+      "mimeType": "multipart/form-data",
+      "contentType": false,
+      "data": form
+    };
+
+    $.ajax(settings).done(function(response) {
+      try {
+
+        
+        var parsedResponse = JSON.parse(response);
+
+        
+        $("#registryCount").empty().text(parsedResponse.total_product);
+        if(parsedResponse.status == 200){
+           
+        }
+      } catch (error) {
+        console.error("Error parsing response:", error);
+      }
+    }).fail(function(jqXHR, textStatus, errorThrown) {
+      console.error("AJAX request failed:", textStatus, errorThrown);
+    });
+  });
+
+
+  
+
+
+  
+
+
+  
+  function showLoader() {
+    
+    $('#loader-container').show();
+  }
+
+  function hideLoader() {
+    $('#loader-container').hide();
+    
+  }
+</script>
+
+ 
+
+
+{% schema %}
+  {
+    "name": "quickFacts",
+    "settings": [
+       {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading"
+       } 
+    ],
+    "presets": [
+    {
+      "name": "quickFacts",
+      "category": "Text"
+    }
+  ]
+  }
+{% endschema %}

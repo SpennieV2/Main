@@ -1,0 +1,68 @@
+<section class="BannerSection" style="
+    background: #fbf6f0!important;
+    height: 100vh;
+">
+  <div class="BannerTxtMd">
+  <h2 style="
+    text-align: center;
+    color: #000;
+    font-size: 33px;
+    font-weight: 400;
+    line-height: 41px;
+    margin: 0 0 18px;
+    text-align: center;
+    padding-top: 40px;
+">Spennie is powered by small businesses.</h2>
+  <p style="
+    text-align: center;
+    color: #000;
+    font-size: 14px;
+    letter-spacing: .01em;
+    line-height: 24px;
+    margin: 0 auto 1px;
+    max-width: 520px;
+    padding: 0;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 40px;
+">Our goal is to partner with the chicest, coolest home goods stores in the best places. Think - wedding destinations...Martha's Vineyard, Aspen, Hamptons...you get the idea.</p>
+</div>
+  <div class="BannerIframeLg" style="
+    text-align: center;
+">
+    <img src="https://cdn.shopify.com/s/files/1/0662/4061/0549/files/Screenshot_2024-05-22_172532.png?v=1716380748" style="width: 60%;">
+  </div>
+</section>
+{% schema %}
+ {
+  "name": "Brands Info",
+  "settings": [
+    {
+      "type": "text",
+      "id": "banner_heading",
+      "label": "Banner Heading",
+      "default": "Spennie is powered by small businesses."
+    },
+    {
+      "type": "textarea",
+      "id": "banner_description",
+      "label": "Banner Description",
+      "default": "Our goal is to partner with the chicest, coolest home goods stores in the best places. Think - wedding destinations...Martha's Vineyard, Aspen, Hamptons...you get the idea."
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_image",
+      "label": "Banner Image"
+     
+     
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brands Info",
+      "category": "Text"
+    }
+  ]
+}
+
+{% endschema %}

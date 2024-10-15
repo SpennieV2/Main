@@ -1,0 +1,617 @@
+<style>
+    /* .header, .footer {
+      display: none !important;
+    } */
+   .footer {
+      display: none !important;
+    }
+    .container1 .row {
+      background: #faf5ef;
+    }
+
+    .banner {
+      width: 100%;
+      height: 100%;
+    }
+  .product-tumb img {
+     cursor:pointer;
+      transition: 0.4s; /* Smooth transition effect */
+  }
+    .product-card {
+      position: relative;
+      box-shadow: 0 2px 7px #dfdfdf;
+      margin: 50px auto;
+      background: white;
+      min-height:500px;
+    }
+
+    .product-tumb {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 300px;
+      padding: 50px;
+    }
+
+    .product-tumb img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    .product-details {
+      padding: 15px;
+    }
+
+    .product-catagory {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #ccc;
+      margin-bottom: 18px;
+    }
+
+    .product-details h4 a {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 18px;
+      text-transform: uppercase;
+      color: #363636;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .product-details h4 a:hover {
+      color: #fbb72c;
+    }
+
+    .product-details p {
+      font-size: 15px;
+      line-height: 22px;
+      margin-bottom: 18px;
+      color: #999;
+    }
+
+    .product-bottom-details {
+      overflow: hidden;
+      border-top: 1px solid #eee;
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .product-price {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .product-price small {
+      font-size: 80%;
+      font-weight: 400;
+      text-decoration: line-through;
+      display: inline-block;
+      margin-right: 5px;
+    }
+
+    .product-links {
+      text-align: right;
+    }
+
+    .product-links a {
+      display: inline-block;
+      margin-left: 5px;
+      color: #e1e1e1;
+      transition: 0.3s;
+      font-size: 17px;
+    }
+
+    .product-links a:hover {
+      color: #fbb72c;
+    }
+
+    .center {
+      margin: 25% 20%;
+      text-align: center;
+    }
+
+    .registry-heading {
+      font-size: 30px;
+      font-weight: 500;
+      margin-bottom: 15px;
+    }
+
+    .loader-container {
+      display: flex;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.8);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .loader {
+      border: 12px solid #f3f3f3;
+      border-top: 12px solid Black;
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      animation: spin 1s linear infinite;
+      display:block !important;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .btn-checkout button {
+      width: 100%;
+      background: transparent;
+      padding: 10px;
+      margin-top: 10px;
+      border: 1px solid;
+      text-transform: uppercase;
+      font-weight: 500;
+      font-size: 13px;
+    }
+
+    .bg-registry {
+      background-color: hsla(34, 53%, 87%, .3);
+    }
+
+    .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  input:checked + .slider {
+    background-color: #fcbe99;
+  }
+
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+
+  .slider.round:before {
+    border-radius: 50%;
+  }
+</style>
+
+<div class="loader-container" id="loader-container">
+  <div class="loader"></div>
+</div>
+
+<div class="container-fluid bg-registry">
+  <div class="row flex-column-reverse flex-lg-row">
+    <div class="col-md-6" style="">
+      <div class="center">
+        <h2 id="Heading" class="registry-heading"></h2>
+        <p id="subHeading"></p>
+        <a id="WebsiteUrl" href="">Wedding Website</a>
+        <input
+          type="hidden"
+          value="{{ customer.id }}"
+          name="firstname"
+          placeholder="First Name"
+          id="customer-id"
+          class="formbold-form-input"
+        >
+      </div>
+    </div>
+    <div class="col-md-6 p-0">
+      <img id="image_banner-3" class="banner" src="https://spennieapp.skylinxtech.co/upload/images/1706701833_.png">
+      <input
+        type="hidden"
+        value="{{ customer.id }}"
+        name="firstname"
+        placeholder="First Name"
+        id="customer-id"
+        class="formbold-form-input"
+      >
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid p-5">
+  <div class="row product_row"></div>
+  <div class="row d-none">
+    <div class="col-md-3">
+      <div class="product-card">
+        <div class="">
+          <div class="slider-container">
+            <div class="slider-content">
+              <!-- Adjust the number of items based on your product images -->
+              <div class="slider-item">
+                <img
+                  src="https://edge.images.sidelineswap.com/production/030/788/111/426e08174a60ffcd_original.jpeg?height=280"
+                  alt="Product Image 1"
+                  class="slider-image"
+                >
+              </div>
+              <div class="slider-item">
+                <img
+                  src="https://edge.images.sidelineswap44.com/production/030/788/111/426e08174a60ffcd_original.jpeg?height=280"
+                  alt="Product Image 2"
+                  class="slider-image"
+                >
+              </div>
+              <div class="slider-item">
+                <img
+                  src="https://edge.images.sidelineswap.com/production/030/788/111/426e08174a60ffcd_original.jpeg?height=280"
+                  alt="Product Image 3"
+                  class="slider-image"
+                >
+              </div>
+              <!-- Add more slider items as needed -->
+            </div>
+
+            <div class="prev" onclick="prevSlide()">&#10094;</div>
+            <div class="next" onclick="nextSlide()">&#10095;</div>
+          </div>
+        </div>
+        <div class="product-details">
+          <span class="product-catagory">Quantityss:</span>
+          <div class="product-bottom-details">
+            <h4><a href="">product.title</a></h4>
+            <div class="product-price">$ variant.price</div>
+          </div>
+          <div class="btn-checkout">
+            <button>Add To Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% javascript %}
+
+  
+ 
+$(document).ready(function () {
+  
+  
+ function showLoader() {
+    
+    $('#loader-container').show();
+  }
+
+  function hideLoader() {
+    $('#loader-container').hide();
+    
+  }
+
+  async function fetchData(registryId) {
+    showLoader();
+    let api_url = base_url + "api/get-registery-detail/" + registryId;
+    var settings = {
+      url: api_url,
+      method: "GET",
+      timeout: 0,
+    };
+
+    $.ajax(settings).done(function (response) {
+      
+
+      console.log(response.data);
+
+      if (response.status == 200) {
+       
+        $('#subHeading').text(response.data.subHeading);
+        $('#Heading').text(response.data.Heading);
+        if (response.data.WebsiteUrl) {
+                $('#WebsiteUrl').attr('href', response.data.WebsiteUrl).show();
+            } else {
+                $('#WebsiteUrl').hide();
+            }
+        $('#Day').text(response.data.Day);
+        $('#Month').text(response.data.Month);
+        $('#Year').text(response.data.Year);
+        $('.event-day').val(response.data.Day);
+        $('.event-year').val(response.data.Year);
+        
+            const imageBanner = document.getElementById('image_banner-3');
+            if (response && response.data && response.data.img) {  
+
+
+               
+              imageBanner.src = response.data.img;
+                   
+              
+            } else {  
+              imageBanner.src = 'data:image/png;base64,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';
+            }
+      }
+    }).fail(function () {
+    
+      // Handle failure or show an error message
+    });
+    var count = 1;
+var isLoading = false;
+
+function fetchProducts() {
+    isLoading = true;
+
+    var settings = {
+        "url": base_url + "api/get-registry-products/" + registryId + '/' + count,
+        "method": "GET",
+        "timeout": 0,
+    };
+
+    $.ajax(settings).done(function(response) {
+        hideLoader();
+        console.log(response['data']);
+        let products = response['data'];
+
+        products.forEach((product, index) => {
+            if (product.variant.variant) {
+                let qty = product.variant.variant_qty;
+                let needqty = product.variant.still_need_qty;
+                if (needqty == null) {
+                    needqty = qty;
+                }
+                let variant_id = product.variant.variant.id;
+                let product_id = product.product_id;
+
+                console.log(product.variant.variant.title);
+
+                let img_src = product.img_src; // Assuming img_src is an array
+                let defaultImg = img_src[0];
+                let hoverImg = img_src.length > 1 ? img_src[1] : defaultImg;
+
+                // Use a unique id for each image element
+                let imgId = `product-img-${index}`;
+
+                $(".product_row").append(`
+                    <div class="col-md-3">
+                        <div class="product-card">
+                            <div class="product-tumb">
+                                <img id="${imgId}" src="${defaultImg}" alt="" data-hover="${hoverImg}" />
+                            </div>
+                            <div class="product-details">
+                                <div class="product-bottom-details">
+                                    <h4 class="product-title">
+                                        <a href="/products/${product.product_name.toLowerCase()
+                                            .trim()
+                                            .replace(/\s+/g, '-')
+                                            .replace(/[^a-z0-9-]+/g, '')
+                                            .replace(/-+/g, '-')
+                                            .replace(/^-+|-+$/g, '')}">${product.title}</a>
+                                    </h4>
+                                    <div class="product-price">$ ${product.variant.variant.price}</div>
+                                </div>
+                                <div class="btn-checkout">
+                                    <div class="quick-add no-js-hidden">
+                                        <product-form data-section-id="template--17367260201210__product-grid">
+                                            <form method="post" action="" id="quick-add-template--17367260201210__product-grid${variant_id}" accept-charset="UTF-8" class="form" enctype="multipart/form-data" novalidate="novalidate" data-type="add-to-cart-form">
+                                                <input type="hidden" name="form_type" value="product">
+                                                <input type="hidden" name="utf8" value="✓">
+                                                <input type="hidden" name="id" value="${variant_id}" class="product-variant-id">
+                                                <button id="quick-add-template--17367260201210__product-grid${product_id}-submit" type="button" name="add" data-need="${needqty}" data-id="${variant_id}" class="add-to-cart" aria-haspopup="dialog" aria-labelledby="quick-add-template--17367260201210__product-grid${product_id}-submit title-template--17367260201210__product-grid-${product_id}" aria-live="polite" data-sold-out-message="true">
+                                                    <span>Add to cart<br> Requested Quantity: ${qty} | Still needs : ${needqty}</span>
+                                                </button>
+                                                <input type="hidden" name="product-id" value="${product_id}">
+                                                <input type="hidden" name="section-id" value="template--17367260201210__product-grid">
+                                            </form>
+                                        </product-form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `);
+
+                // Add hover event listeners to the image
+                let productImg = document.getElementById(imgId);
+                if (img_src.length > 1) {
+                    productImg.addEventListener('mouseover', function() {
+                        productImg.src = hoverImg;
+                    });
+                    productImg.addEventListener('mouseout', function() {
+                        productImg.src = defaultImg;
+                    });
+                }
+            }
+        });
+        isLoading = false; // Reset loading state
+    });
+}
+
+
+// Initial fetch
+fetchProducts();
+
+// Scroll event listener
+// $(window).on('scroll', function() {
+//     if ($(window).scrollTop() + $(window).height() >= $(document).height() - 100 && !isLoading) {
+//         count++;
+//         fetchProducts();
+//     }
+// });
+  }
+
+  async function getRegistryIdFromUrl() {
+    let currentUrl = window.location.href;
+    let segments = currentUrl.split('/');
+    let registryId = segments[segments.length - 1];
+    if(registryId == 'my-registry')
+    {
+
+
+
+         let customerId = $("#customer-id").val();
+         let api_url = base_url + "api/get-registery/" + customerId;
+
+                var settings = {
+                    url: api_url,
+                    method: "GET",
+                    timeout: 0,
+                };
+
+                $.ajax(settings).done(function (response) {
+                     
+
+                  
+                    location.href = currentUrl+"/"+response.data;
+                });
+            
+      
+    }
+    else{
+      return registryId;
+    }
+   
+    
+  }
+
+  let registryId = getRegistryIdFromUrl();
+
+  
+
+  
+  async function initialize() {
+      let registryId = await getRegistryIdFromUrl();
+    
+      if (typeof registryId !== 'undefined') {
+          await fetchData(registryId);
+      }
+  }
+  
+  initialize();
+  
+  
+  $(document).on('click', '.add-to-cart', function(event) {
+
+    
+      event.preventDefault();
+      let data_id=$(this).attr('data-id');
+      let data_need=$(this).attr('data-need');
+    
+     if(data_need == 0)
+     {
+        toastr.success("Requested quantity completed");
+        return false;
+       
+     }
+      var currentUrl = window.location.href;
+
+      var id = currentUrl.split('/my-registry/')[1];
+
+      var name = $(".registry-heading").text();
+
+
+    
+      localStorage.setItem("cart_registry_id", id);
+      
+      var formData = $('#quick-add-template--17367260201210__product-grid'+data_id).serialize();
+
+     formData += '&properties[RegistryId]=' + encodeURIComponent(id);
+     formData += '&properties[Registry]=' + encodeURIComponent(name);
+    console.log(formData);
+      // Make an AJAX request
+      $.ajax({
+        url: '/cart/add.js',
+        method: 'POST',
+        data: formData,
+        dataType: 'json',
+        success: function(data) {
+          console.log('Product added to cart:', data);
+          var firstSpanText = $('.cart-count-bubble span:first').text();
+
+          let length = firstSpanText;
+          
+         
+          if(length == '')
+          {
+            
+            firstSpanText=0;
+          }
+          firstSpanText++;
+
+          
+          $(".cart-notification-product").empty().append(`<div class="cart-notification-product__image global-media-settings">
+          <img src="${data.image}" alt="${data.title}" width="70" height="70" loading="lazy">
+        </div><div><h3 class="cart-notification-product__name h4">${data.title}</h3>
+        <dl></dl></div>`);
+           $("#cart-icon-bubble").empty().append(`<svg class="icon icon-cart" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="none">
+                                                    <path fill="currentColor" fill-rule="evenodd" d="M20.5 6.5a4.75 4.75 0 00-4.75 4.75v.56h-3.16l-.77 11.6a5 5 0 004.99 5.34h7.38a5 5 0 004.99-5.33l-.77-11.6h-3.16v-.57A4.75 4.75 0 0020.5 6.5zm3.75 5.31v-.56a3.75 3.75 0 10-7.5 0v.56h7.5zm-7.5 1h7.5v.56a3.75 3.75 0 11-7.5 0v-.56zm-1 0v.56a4.75 4.75 0 109.5 0v-.56h2.22l.71 10.67a4 4 0 01-3.99 4.27h-7.38a4 4 0 01-4-4.27l.72-10.67h2.22z"></path>
+                                                  </svg>
+                                                  <span class="visually-hidden">Cart</span><div class="cart-count-bubble"><span aria-hidden="true">${firstSpanText}</span><span class="visually-hidden">${firstSpanText} items</span></div>`);
+
+          $("#cart-notification-button").empty().append(`View cart (${firstSpanText})`);
+
+          $(".cart-notification").addClass('active');
+        },
+        error: function(error) {
+        
+
+          
+          
+           toastr.error(error['responseJSON']['description']);
+
+          
+        }
+      });
+    });
+});
+{% endjavascript %}
+{% schema %}
+{
+  "name": "My-Registry",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "image"
+    }
+  ],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "My-Registry",
+      "category": "Text"
+    }
+  ]
+}
+{% endschema %}

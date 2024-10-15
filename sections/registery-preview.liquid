@@ -1,0 +1,955 @@
+<style>
+ .header , .quickFacts  , .Footer{
+    display: none !important;
+  }
+ .footer {
+    display: none !important;
+  }
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+  .head .head__container--full {
+    border-bottom: 1px solid #000;
+    box-sizing: border-box;
+    padding: 18px 40px;
+    width: 100%;
+    background-color: white;
+}
+  body{
+       background-color: white !important;
+
+  }
+  .col8{
+    background: #f3f0ec !important;
+    margin:20px;
+  
+  }
+  .head .head__container--full .head__row {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+  .head__close {
+    border-right: 1px solid;
+    padding: 0px 10px;
+  }
+  .head .head__container--full .head__row .head__left {
+    align-items: center;
+    display: flex;
+    
+}
+.head .head__container--full .head__row .head__left .head__divider {
+    background-color: #d9dce1;
+    height: 24px;
+    margin: 0 24px;
+    width: 2px;
+}
+  .head .head__container--full .head__row .head__left .head__close {
+    margin-right: 10px;
+}
+  #submitFormBtn{
+   
+    background: #fff;
+    border: 1px solid #000;
+    border-radius: 0;
+    box-sizing: border-box;
+    color: #000;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    line-height: 14px;
+    padding: 10px 40px;
+    text-align: center;
+    text-transform: uppercase;
+
+    
+  }
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #fcbe99;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+   .text-area-section {
+     height:200px;
+   }
+   .preview-registry{
+    font-weight: 700;
+    padding: 40px 10px;
+   }
+   .exitandsave{
+         display: flex;
+    justify-content: space-between;
+    align-items: center;
+   }
+   .exitandsave button{
+         height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+   }
+  
+
+   .container1 .row {
+         background: #faf5ef;
+
+   }
+   .banner{
+        width: 100%;
+     height:100%;
+
+   }
+.product-card {
+    position: relative;
+    box-shadow: 0 2px 7px #dfdfdf;
+    margin: 50px auto;
+    background: white;
+}
+
+
+.product-tumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    padding: 50px;
+}
+
+.product-tumb img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.product-details {
+    padding: 15px;
+}
+
+.product-catagory {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #ccc;
+    margin-bottom: 18px;
+}
+
+.product-details h4 a {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+    color: #363636;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.product-details h4 a:hover {
+    color: #fbb72c;
+}
+
+.product-details p {
+    font-size: 15px;
+    line-height: 22px;
+    margin-bottom: 18px;
+    color: #999;
+}
+
+.product-bottom-details {
+    overflow: hidden;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+  display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/* .product-bottom-details div {
+    float: left;
+    width: 50%;
+} */
+
+.product-price {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.product-price small {
+    font-size: 80%;
+    font-weight: 400;
+    text-decoration: line-through;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.product-links {
+    text-align: right;
+}
+
+.product-links a {
+    display: inline-block;
+    margin-left: 5px;
+    color: #e1e1e1;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+.product-links a:hover {
+    color: #fbb72c;
+}
+.center {
+  margin:25% 20%;
+      text-align: center;
+
+}
+   .registry-heading{
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 15px;
+   }
+@media screen and (max-width: 480px) {
+ .center {
+  margin:10% 2%;
+  }
+}
+
+.center p {
+  line-height: 1.5;
+  display: inline-block;
+  vertical-align: middle;
+}
+   .btn-checkout button{
+         width: 100%;
+    background: transparent;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid;
+    text-transform: uppercase;
+    font-weight: 500;
+     font-size:13px;
+   }
+   .bg-registry{
+     background-color:hsla(34,53%,87%,.3);
+   }
+   .preview-box{
+   
+    border-radius: 15px;
+     height:90vh;
+     overflow:auto;
+     margin-bottom:10vh;
+   }
+::-webkit-scrollbar {
+  width: 10px; /* Set your desired width here */
+  border-radius:20px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: lightgray;
+  border-radius:20px;/* Color of the scrollbar thumb */
+}
+  .loader-container {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .loader {
+    border: 12px solid #f3f3f3;
+    border-top: 12px solid Black;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    animation: spin 1s linear infinite;
+    display:block !important;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+::-webkit-scrollbar-track {
+  background-color: #eee; /* Color of the scrollbar track */
+}
+</style>
+<div class="container-fluid">
+<div class="loader-container" id="loader-container">
+  <div class="loader"></div>
+</div>
+
+<div class="rows">
+  <header class="head">
+  <div class="head__container head__container--full">
+    <div class="head__row">
+      <div class="head__left">
+        <div class="head__close">
+          <a href="dashboard-1">
+            <img src="https://cdn.shopify.com/s/files/1/0686/0980/2490/files/ic-close.04a3b844b668bb30b64a92181ac02a00.svg?v=1710327931">
+          </a>
+        </div>
+        <div class="head__divider"></div>
+        <div class="head__title">Preview Registry</div>
+      </div>
+      <div class="head__right">
+        <button id="submitFormBtn" class="btn btn-secondary">Save & Exit</button>
+      </div>
+    </div>
+  </div>
+</header>
+  </div>
+<div class="row">
+  <div class="col-md-4" style="background: white;padding-left: 30px;padding-right: 30px;height: 94vh;overflow: auto;">
+              <div class="formbold-input-flex mt-5">
+                
+                <div>
+                    <label for="lastname" class="formbold-form-label">Status <span style="color:red">*</span>  </label>
+                    
+                </div>
+                
+                <div class="d-flex" style="justify-content: end;gap:10px;">
+                   <label class="switch">
+                      <input type="checkbox" class="active_registry">
+                      <span class="slider round"></span>
+                    </label>
+                    <label for="lastname" class="formbold-form-label active_registry_text" style="margin-top: auto;margin-bottom: auto;"> ACTIVES </label>
+
+                </div>
+             </div>
+             <div class="formbold-input-flex mt-5">
+                
+                <div>
+                    <label for="lastname" class="formbold-form-label">Shipment Address <span style="color:red">*</span> </label>
+                    <input
+                    type="text"
+                    name="shippment_address"
+                    placeholder="Shippment Address"
+                    id="shippment_address"
+                    class="formbold-form-input"
+                    />
+                   <input
+                      type="hidden"
+                      value="{{ customer.id }}"
+                      name="firstname"
+                      placeholder="First Name"
+                      id="customer-id"
+                      class="formbold-form-input"
+                      />
+                </div>
+                
+                <div>
+                    <label for="lastname" class="formbold-form-label"> Unit </label>
+                    <input
+                    type="text" id="unit"  name="unit" placeholder="Unit"
+                    class="formbold-form-input "
+                    />
+                </div>
+             </div>
+             <div class="formbold-input-flex mt-5">
+                
+                <div>
+                    <label for="City" class="formbold-form-label">City </label>
+                    <input
+                    type="text"
+                    name="City"
+                    placeholder="City"
+                    id="City"
+                    class="formbold-form-input"
+                    />
+                </div>
+                <div>
+                    <label for="State" class="formbold-form-label"> State </label>
+                    <select 
+                      style="padding: 18px 22px;"
+                      id="select-state"
+                    name="select-state" placeholder="State"
+                    class="formbold-form-input select-state "
+                    ></select>
+                </div>
+               <div>
+                    <label for="Zip" class="formbold-form-label"> Zip </label>
+                    <input
+                      id="zip"
+                    type="text"  name="" placeholder="Zip"
+                    class="formbold-form-input  "
+                    />
+                </div>
+             </div>
+             <div class=" mt-5">
+                
+                <div>
+                    <label for="Wedding_Website_Url" class="formbold-form-label">Wedding Website Url </label>
+                    <input
+                    type="text"
+                    name="Wedding_Website_Url"
+                    placeholder="Wedding Website Url"
+                    id="Wedding_Website_Url"
+                    class="formbold-form-input  "
+                    max="31"
+                    min="01"
+                    pattern="^\d*(\.\d{0,2})?$"
+                    />
+                </div>
+               
+             </div>
+             <div class="mt-5">
+                
+                <div>
+                    <label for="lastname" class="formbold-form-label">Heading <span style="color:red">*</span> </label>
+                    <input
+                    type="text"
+                    name="event-day"
+                    placeholder="Heading"
+                    id="Heading"
+                    class="formbold-form-input  "
+                    max="31"
+                    min="01"
+                    pattern="^\d*(\.\d{0,2})?$"
+                    />
+                </div>
+               
+             </div>
+             <div class=" mt-5">
+                
+                <div>
+                    <label for="lastname" class="formbold-form-label">Sub Text</label>
+                    <textarea
+                    name="event-day"
+                    placeholder="Day"
+                    id="subHeading"
+                    class="formbold-form-input text-area-section "
+                    max="31"
+                    min="01"
+                    pattern="^\d*(\.\d{0,2})?$"
+                    ></textarea>
+                </div>
+               
+             </div>
+
+   
+             <div class="formbold-input-flex">
+                <div>
+                    <label for="firstname" class=" formbold-form-label"> Wedding Month </label>
+                    
+                   <select  class="formbold-form-input event-month event-date" id='gMonth2' name="event-month"   style="padding: 18px 22px">
+                      <option value='' selected>--Select Month--</option>
+                      <option value='1'>Janaury</option>
+                      <option value='2'>February</option>
+                      <option value='3'>March</option>
+                      <option value='4'>April</option>
+                      <option value='5'>May</option>
+                      <option value='6'>June</option>
+                      <option value='7'>July</option>
+                      <option value='8'>August</option>
+                      <option value='9'>September</option>
+                      <option value='10'>October</option>
+                      <option value='11'>November</option>
+                      <option value='12'>December</option>
+                    </select> 
+                </div>
+                <div>
+                    <label for="event_date" class="formbold-form-label">Day (DD)</label>
+                    <input
+                    type="number"
+                    name="event-day"
+                    placeholder="Day"
+                    id="event_date"
+                    class="formbold-form-input event-day event-date"
+                    max="31"
+                    min="01"
+                    pattern="^\d*(\.\d{0,2})?$"
+                    />
+                </div>
+                <div>
+                    <label for="event_year" class="formbold-form-label"> Year (YYYY) </label>
+                    <input
+                    type="number" id="event_year"  name="event-year" placeholder="Year" min="2024" max="2099" step="1" value="2024"
+                    class="formbold-form-input event-year event-date"
+                    />
+                </div>
+             </div>
+             <div class="mb-5" style="justify-content: center;">
+                <label class="checkbox-label">
+                  <input type="checkbox"  id="check_id">We haven't decided yet
+                </label>
+             </div>
+          <div>
+                <label class="image-upload">
+                    Collection Photo (recommended dimensions: 700px x 500px)
+                    <input type="file" id="file" class="upload_img">
+                </label>
+                <p>Current Image</p>
+                <img id="file_upload" class="banner-img" src="" style="width:100%" >
+            </div>
+    
+  </div>
+        <div class="col-md-8">
+        <div class="exitandsave">
+           
+        </div>
+         <p style="
+            margin: 20px;
+            font-weight: 600;
+        ">Preview</p>
+           <div class="preview-box  col8">
+             <div class="container-fluid bg-registry">
+
+              <div class="row flex-column-reverse flex-lg-row">
+                  <div class="col-md-6" style="">
+                    <div class="center">
+                      <h2 id="HeadingNEW" class="registry-heading"></h2>
+                      <p id="subHeading-2"></p> 
+                      <a id="WebsiteUrl-2" href="" disabled="disabled" style="cursor: default !important;pointer-events: none;">Your Wedding Website</a>
+                    </div>
+                  </div>
+ 
+                 <div class="col-md-6 p-0">
+                    <img id="image_banner-2" class="banner" src="" >
+                 </div>
+            </div>
+           </div>
+            <div class="container-fluid p-5">
+               <div class="row product_row">
+                  
+              
+                  
+                </div>
+            </div>
+           </div>
+        </div>
+</div>
+</div>
+{% javascript %}
+
+ $(document).ready(function () {
+   function showLoader() {
+    $('#loader-container').show();
+  }
+ function hideLoader() {
+    $('#loader-container').hide();
+  }
+  
+
+   
+    $(document).on('change','.active_registry',function(){
+      let status='';   
+     
+     if($(".active_registry").prop("checked") == true)
+      {
+             status=1;
+             $(".active_registry_text").empty().append('ACTIVE');
+      }
+      else{
+             status=0;
+             $(".active_registry_text").empty().append('DEACTIVE');
+          }
+      
+
+      let customerId = $("#customer-id").val(); 
+      let api_url = base_url + "api/get-registery/" + customerId;
+      var settings = {
+          url: api_url,
+          method: "GET",
+          timeout: 0,
+      };
+    
+      $.ajax(settings).done(function (response) {
+        let registry_id = response.data;
+        var form = new FormData();
+        form.append("registry_id", registry_id);
+        form.append("status", status);
+        let api_url = base_url + "api/update-registry-status";
+  
+        var settings = {
+          "url": api_url,
+          "method": "POST",
+          "timeout": 0,
+          "processData": false,
+          "mimeType": "multipart/form-data",
+          "contentType": false,
+          "data": form
+        };
+        $.ajax(settings).done(function (response) {
+          console.log(response);
+          const responseData = JSON.parse(response);
+          toastr.success(responseData.msg);
+
+          
+        });
+        
+      });
+      
+      
+    });
+    $('#file').change(function (event) {
+        var input = event.target;
+        var reader = new FileReader();
+
+        reader.onload = function () {
+            var dataURL = reader.result;
+            $('#file_upload').attr('src', dataURL); // Update the src attribute with the new image data
+            $('.banner').attr('src', dataURL);
+        };
+
+        reader.readAsDataURL(input.files[0]);
+    });
+    
+
+    function fetchRegistryId() {
+     let customerId = $("#customer-id").val();
+     showLoader();
+     let api_url = base_url + "api/get-registery/" + customerId;
+
+            var settings = {
+                url: api_url,
+                method: "GET",
+                timeout: 0,
+            };
+
+            $.ajax(settings).done(function (response) {
+                // console.log("Registry ID:", response.data);
+                // Now that you have the registry ID, make another API request for detailed information
+                fetchData(response.data);
+            });
+    }
+    // Function to fetch data from the API using GET request
+    function fetchData(registryId) {
+        
+        // let customerId = $("#customer-id").val();
+         let api_detail_url = base_url + "api/get-registery-detail/" + registryId;
+
+        var settings = {
+            url: api_detail_url,
+            method: "GET",
+            timeout: 0,
+        };
+
+        $.ajax(settings).done(function (response) {
+            console.log(response.data);
+            if (response.status == 200) {
+
+               var state_settings = {
+                "url":  base_url + "api/get-state",
+                "method": "GET",
+                "timeout": 0,
+              };
+        
+              $.ajax(state_settings).done(function (state_response) {
+
+                  $('#subHeading').val(response.data.subHeading);
+                  $('#subHeading-2').text(response.data.subHeading);
+                  $('#WebsiteUrl-2').attr('href', response.data.WebsiteUrl);
+                  $('#Heading').val(response.data.Heading);
+                  $('#HeadingNEW').text(response.data.Heading);
+                  $('#shippment_address').val(response.data.shippingAddress);
+                  $('#unit').val(response.data.unit);
+                  $('#City').val(response.data.city);
+                  $('#zip').val(response.data.zipCode);
+       
+                  if(response.data.isLive == 0)
+                  {
+                    $(".active_registry").prop('checked', false);
+                    $(".active_registry_text").empty().append('DEACTIVE');
+                  }
+                  else{
+                      $(".active_registry").prop('checked', true);
+                      $(".active_registry_text").empty().append('ACTIVE');
+     
+                  }
+
+                  if(response.data.isDateNotDecided == 0)
+                  {
+                    $('select[name="event-month"]').val(response.data.Month);
+                    $('.event-day').val(response.data.Day);
+                    $('.event-year').val(response.data.Year);
+                    
+                  }
+                  else{
+                      $("#check_id").prop('checked', true);
+                      $('select[name="event-month"]').prop('disabled', true);
+                      $('.event-day').prop('disabled', true);
+                      $('.event-year').prop('disabled', true);
+
+                  }
+
+                   const imageBanner = document.getElementById('file_upload');
+                  if (response && response.data && response.data.img) {   
+                    imageBanner.src = response.data.img;
+                  } else {  
+                    imageBanner.src = 'data:image/png;base64,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';
+                  }
+
+                  const imageBanner2 = document.getElementById('image_banner-2');
+                  if (response && response.data && response.data.img) {   
+                    imageBanner2.src = response.data.img;
+                  } else {  
+                    imageBanner2.src = 'data:image/png;base64,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';
+                  }
+               
+              
+                  $('#Wedding_Website_Url').val(response.data.WebsiteUrl);
+                  $('.event-day').val(response.data.Day);
+                  $('.event-year').val(response.data.Year);
+
+                  
+                  $(".select-state").empty();
+                  let data = state_response.data;
+
+                  data.forEach((item) => {
+                      // Check if the current option matches response.data.state
+                      let selectedAttribute = (response.data.state === item.name) ? 'selected' : '';
+                      
+                      // Append option to the select dropdown
+                      $(".select-state").append(`<option value="${item.name}" ${selectedAttribute}>${item.name}</option>`);
+                  });
+              });
+               
+             
+            
+            }
+        });
+
+  
+        var settings = {
+          "url": base_url + "api/get-registry-products/" +registryId,
+          "method": "GET",
+          "timeout": 0,
+        };
+      
+        $.ajax(settings).done(function (response) {
+
+                hideLoader();
+               // const responseData = JSON.parse(response);
+               // const responseData = JSON.parse(response);
+                console.log(response['data']);
+                let product=response['data'];
+                $(".product_row").empty();
+                if(response.status ==200){
+                    product.forEach((product) => {
+                  
+                  console.log(product.variant.variant.price);
+                  let qty        =product.variant.variant_qty;
+                  let variant_id =product.variant_id;
+                  let product_id =product.product_id;
+                  let product_name ="";
+                  
+                  
+                  $(".product_row").append(`<div class="col-md-4">
+                                          <div class="product-card">
+                                    		<div class="product-tumb">
+                                    			<img src="${product.img_src}" alt="" />
+                                    		</div>
+                                    		<div class="product-details">
+                                    			<div class="product-bottom-details">
+                                                  	<h4 class="product-title"> <a href="">${product.title}</a></h4>
+                                    				<div class="product-price">$ ${product.variant.variant.price} </div>
+                                    			</div>
+                                              <div class="btn-checkout">
+                                                  <button>Add To Cart<br> Requested Quantity: ${qty} | Still needs :  ${qty}</button>
+
+                                              </div>
+                                              
+                                    		</div>
+                                    	</div>
+                                    </div>`);
+                });
+                }
+          });
+
+        var settings = {
+          "url":  base_url + "api/get-state",
+          "method": "GET",
+          "timeout": 0,
+        };
+  
+        $.ajax(settings).done(function (response) {
+          let data=response.data;
+          data.forEach((data) => {
+
+             $(".select-state").append(`<option value="${data.name}">${data.name}</option>`);
+            
+          });
+        });
+         
+    }
+
+    fetchRegistryId();
+
+    // Add an event listener to the submit button
+    $("#Heading").on("keyup", function () {
+      let data=$(this).val();
+      $(".registry-heading").empty().append(data);
+    });
+    $("#subHeading").on("keyup", function () {
+      
+      let data=$(this).val();
+       $("#subHeading-2").empty().append(data);
+     
+
+    });
+    $("#submitFormBtn").on("click", function () {
+        if($("#shippment_address").val().length == 0)
+        {
+          toastr.error("Shipping Address is required");
+          return false;
+    
+        }
+        if($("#select-state").val().length == 0)
+        {
+          toastr.error("State is required");
+          return false;
+    
+        }
+        if($("#City").val().length == 0)
+        {
+          toastr.error("City is required");
+          return false;
+    
+        }
+        if($("#zip").val().length == 0)
+        {
+          toastr.error("zip code is required");
+          return false;
+    
+        }
+        var formData = new FormData();
+        // Add form fields to the FormData object
+        formData.append("customer_id", $("#customer-id").val());
+        formData.append("shippingAddress", $("#shippment_address").val());
+        formData.append("unit", $("#unit").val());
+        formData.append("city", $("#City").val());
+        formData.append("state", $("#select-state").val());
+        formData.append("zipCode", $("#zip").val());
+        formData.append("WebsiteUrl", $("#Wedding_Website_Url").val());
+        formData.append("Heading", $("#Heading").val());
+        formData.append("sub_Heading", $("#subHeading").val());
+        formData.append("event_month", $("#gMonth2").val()); 
+        formData.append("event_day", $(".event-day").val());
+        formData.append("event_year", $("#event_year").val());
+        var fileInput = $("#file")[0].files[0];
+        formData.append("file", fileInput);
+        if($("#check_id").prop("checked") == true)
+        {
+          formData.append("event","on" );
+        }
+  
+        else{
+          formData.append("event", "off");
+        }
+
+       
+      //form.append("file", fileInput.files[0], "");
+      
+      var settings = {
+        "url": base_url + "api/update-registery",
+        "method": "POST",
+        "timeout": 0,
+        "processData": false,
+        "mimeType": "multipart/form-data",
+        "contentType": false,
+        "data": formData
+      };
+      
+      $.ajax(settings).done(function (response) {
+
+
+        
+         window.location.href = store_url+"/pages/dashboard-1";
+
+
+        
+        //  $('#subHeading').val(response.data.subHeading);
+        // $('#Heading').val(response.data.Heading);
+        //  $('#shippment_address').val(response.data.shippmentAddress);
+        //  $('#unit').val(response.data.unit);
+        //  $('#City').val(response.data.city);
+        //  $('#state').val(response.data.state);
+        //   $('#Wedding_Website_Url').val(response.data.WebsiteUrl);
+        //   $('.event-day').val(response.data.Day);
+        //  $('.event-year').val(response.data.Year);
+        
+        
+        
+      });
+
+       
+      
+    });
+  
+});
+
+{% endjavascript %}
+
+
+
+    {% schema %}
+   {
+  "name": "Registry",
+  "settings": [
+  ],
+    "blocks": [
+    
+  ],
+    "presets": [
+    {
+      "name": "Registry",
+      "category": "Text"
+    }
+  ]
+}
+   {% endschema %}

@@ -1,0 +1,194 @@
+<style>
+  *{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+@keyframes fade{
+  from{
+    opacity:0.4;
+  }
+  to{
+    opacity:1;
+  }
+}
+
+.body{
+  background:white;
+  padding: 40px 0px;
+}
+
+#slider{
+  margin:0 auto;
+  width:80%;
+  overflow:hidden;
+}
+
+.slides{
+  overflow:hidden;
+  animation-name:fade;
+  animation-duration:1s;
+  display:none;
+}
+
+.slides img{
+    width: 16%;
+    aspect-ratio: 3 / 2;
+    object-fit: contain;
+    display: inline;
+    margin: 20px;
+}
+
+#dot{
+  margin:0 auto;
+  text-align:center;
+}
+.dot{
+  display:inline-block;
+  border-radius:50%;
+  background:#d3d3d3;
+  padding:8px;
+  margin:10px 5px;
+}
+
+.active{
+  background:black;
+}
+
+@media (max-width:567px){
+  #slider{
+    width:100%;
+
+  }
+}
+
+#heading{
+  display:block;
+  text-align:center;
+  font-size:40px;
+  margin:10px 0px;
+    color: #000;
+   
+    /* font-size: 24px; */
+    font-style: normal;
+    font-weight: 500;
+    line-height: 30px;
+    margin-bottom: 50px;
+}
+.dot{
+  visibility:hidden
+}
+</style>
+<div class="body">
+  <span id="heading">Powered by our Brand Partners</span>
+<div id="slider">  
+<div class="slides">  
+    <img src="{{ section.settings.logo1 | img_url: '200x300' }}" width="100%" />
+    <img src="{{  section.settings.logo2 | img_url: '200x300' }}" width="100%" />
+    <img src="{{  section.settings.logo3 | img_url: '200x300' }}" width="100%" />
+    <img src="{{  section.settings.logo4 | img_url: '200x300' }}" width="100%" />
+    <img src="{{  section.settings.logo5 | img_url: '200x300' }}" width="100%" />
+ </div>
+  
+  <div class="slides">  
+  <img src="{{  section.settings.logo6 | img_url: '200x300' }}" width="100%" />
+    <img src="{{  section.settings.logo7 | img_url: '200x300' }}" width="100%" />
+    <img src="{{  section.settings.logo8 | img_url: '200x300' }}" width="100%" />
+    <img src="{{  section.settings.logo9 | img_url: '200x300' }}" width="100%" />
+    <img src="{{  section.settings.logo10 | img_url: '200x300' }}" width="100%" />
+</div>
+   
+  
+  <div id="dot"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+ </div>
+</div>
+  
+<script>
+  var index = 0;
+var slides = document.querySelectorAll(".slides");
+var dot = document.querySelectorAll(".dot");
+
+function changeSlide(){
+
+  if(index<0){
+    index = slides.length-1;
+  }
+  
+  if(index>slides.length-1){
+    index = 0;
+  }
+  
+  for(let i=0;i<slides.length;i++){
+    slides[i].style.display = "none";
+    dot[i].classList.remove("active");
+  }
+  
+  slides[index].style.display= "block";
+  dot[index].classList.add("active");
+  
+  index++;
+  
+  setTimeout(changeSlide,4000);
+  
+}
+
+changeSlide();
+</script>
+{% schema %}
+  {
+    "name": "Brands",
+    "settings": [
+       {
+      "type": "image_picker",
+      "id": "logo1",
+      "label": "logo1"
+    },
+        {
+      "type": "image_picker",
+      "id": "logo2",
+      "label": "logo2"
+    },
+      {
+      "type": "image_picker",
+      "id": "logo3",
+      "label": "logo3"
+    },
+      {
+      "type": "image_picker",
+      "id": "logo4",
+      "label": "logo4"
+    },
+      {
+      "type": "image_picker",
+      "id": "logo5",
+      "label": "logo5"
+    },
+      {
+      "type": "image_picker",
+      "id": "logo6",
+      "label": "logo6"
+    },
+      {
+      "type": "image_picker",
+      "id": "logo7",
+      "label": "logo7"
+    },
+      {
+      "type": "image_picker",
+      "id": "logo8",
+      "label": "logo8"
+    },
+      {
+      "type": "image_picker",
+      "id": "logo9",
+      "label": "logo9"
+    },
+      {
+      "type": "image_picker",
+      "id": "logo10",
+      "label": "logo10"
+    }
+    ]
+    
+  }
+{% endschema %}

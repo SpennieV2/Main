@@ -1,0 +1,120 @@
+.product-media-container.constrain-height.media-fit-contain{
+  width: 300px!important;
+    height: 300px!important;
+
+}
+
+.regis_quantity {
+      width: 50px;
+      font-size: 1em;
+      text-align: center;
+      border: 1px solid black;
+    }
+
+    .qty-left {
+      width: 37px;
+      flex-shrink: 0;
+      font-size: 1.8rem;
+      /* border: 0; */
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgb(var(--color-foreground));
+      background-color:white;
+      padding: 0;
+      border: 1px solid black;
+      border-right-width: 0px;
+      border-radius: unset;
+      border-left: 0 !important
+
+    }
+   .qty-right {
+      width: 37px;
+      flex-shrink: 0;
+      font-size: 1.8rem;
+      /* border: 0; */
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgb(var(--color-foreground));
+      background-color:white;
+      padding: 0;
+      border: 1px solid black;
+      border-left-width: 0px;
+      border-radius: unset;
+     
+     
+
+    }
+    .regis_quantity{
+        border-left: 0;
+        border-right: 0;
+    }
+    .add_to_registry{
+      color: black;
+      background: white;
+      --border-offset: unset!important;
+      border: 1px solid black!important;
+      border-right: 0 !important;
+    }
+  .add_to_registry:hover {
+     
+
+    --border-offset: unset!important;
+   
+   
+       border-right: 0 !important;
+    }
+
+  .quantity{
+     width: 100% !important;
+
+  }
+  .product-form__buttons{ 
+     max-width: 100% !important;
+
+  }
+ .product-form__input { 
+     max-width: 100% !important;
+
+  }
+
+
+
+  .quick-add-modal__content-info .page-width .product  .product_detail {
+ 
+      padding-top: 23%!important;
+  }
+  .product-card {
+    position: relative;
+    box-shadow: 0 2px 7px #dfdfdf;
+    margin: 50px auto;
+    background: white;
+    min-height:500px;
+  }
+
+/* .shopify-challenge__button{
+      margin-top: 6%!important;
+}
+ */
+
+.RegistryId{
+  display: none;
+}
+
+/* .card__media .media img {
+   
+  object-fit: unset!important;
+} */
+.facets__heading{
+  display:none!important;
+}
+.facet-filters__sort, .facet-filters__sort:hover {
+    box-shadow: none;
+    filter: none;
+    transition: none;
+    color: black;
+    font-weight: 700;
+}

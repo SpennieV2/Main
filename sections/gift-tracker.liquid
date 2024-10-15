@@ -1,0 +1,308 @@
+<style>
+
+  .loader-container-order {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .loader {
+    border: 12px solid #f3f3f3;
+    border-top: 12px solid Black;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    animation: spin 1s linear infinite;
+    display:block !important;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+::-webkit-scrollbar-track {
+  background-color: #eee; /* Color of the scrollbar track */
+}
+    .cardData {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin:10px auto ;
+    width: 78%;
+      display: flex;
+    flex-direction: row;
+    align-items: center;
+  
+    gap:20px;
+  }
+#cardsContainer{
+    display: flex;
+    flex-wrap: wrap;
+  margin: auto;
+    
+}
+  .cardData img{
+        width: 250px;
+    object-fit: contain;
+  }
+  .giftTracker{
+    font-size: 50px;
+    text-align: center;
+    margin: 20px;
+  }
+#totalItems{
+      font-size: 30px;
+    padding-left: 13px;
+    
+    text-transform: capitalize;
+}
+.cardData h3{
+      font-size: 20px;
+    font-weight: 600;
+    margin: 10px 0px;
+    color: black;
+}
+  .NotAvailableWrapper{
+        width: 100%;
+        height :40vh;
+  }
+  .CardLarge{
+        margin-top: 12vh;
+        margin-left:  auto;
+        margin-right:  auto;
+        max-width: 90%;
+        text-align: center;
+        width: 580px;
+    
+  }
+  .NotAvailableCardTitle{
+    color: #000;
+    font-size: 34px;
+    font-weight: 400;
+    line-height: 44px;
+    margin: 0 0 30px;
+    text-align: center;
+  }
+  .NotAvailableCardSubTitle{
+    color: #000;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 30px;
+    margin: 0;
+    text-align: center;
+  }
+  .CopyLinkBtn{
+    align-items: center;
+    background: #fff;
+    border: 1px solid #000;
+    border-radius: 0;
+    box-sizing: border-box;
+    color: #000;
+    display: inline-flex;
+    font-size: 14px;
+    font-weight: 500;
+    justify-content: center;
+    letter-spacing: 1px;
+    line-height: 140%;
+    margin-top: 40px;
+    padding: 18px 0;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 254px;
+  }
+p{
+  margin-bottom:0px;
+}
+</style>
+<div>
+   <div class="loader-container-order" id="loader-container-order">
+  <div class="loader"></div>
+</div>
+  <div class="giftTracker">
+    {{ section.settings.heading }}
+  </div>
+  <div id="cardsContainer">
+    
+      <div style="width: 75%;
+    margin: auto;"><h2 id="totalItems"></h2></div>
+
+  </div>
+</div>
+<script>
+  $(document).ready(function() {
+
+    showLoader();
+
+    GetOrders();
+     $(document).on('click', '.CopyLinkBtn', function() {
+      var url = $(this).data('url');
+      
+      // Create a temporary input element
+      var $temp = $("<input>");
+      
+      // Add the URL value to the input element
+      $("body").append($temp);
+      $temp.val(url).select();
+      
+      // Copy the URL value to clipboard
+      document.execCommand("copy");
+      
+      // Remove the temporary input element
+      $temp.remove();
+      toastr.success("Registry link copied");
+
+      
+      // Optionally, provide feedback to the user
+    });
+  });
+function GetOrders() {
+
+    
+    const get_registery_id = localStorage.getItem('registery_id');
+
+    var form = new FormData();
+    form.append("registery_id", get_registery_id);
+
+    var settings = {
+      "url": base_url + "api/getOrders/" + get_registery_id,
+      "method": "GET",
+      "timeout": 0,
+      "processData": false,
+      "mimeType": "multipart/form-data",
+      "contentType": false,
+      "data": form
+    };
+
+    $.ajax(settings).done(function(response) {
+      console.log("Response:", response);
+      try {
+        var parsedResponse = JSON.parse(response);
+
+        console.log("parsedResponse:", parsedResponse);
+        if (parsedResponse && parsedResponse.status === 200 && parsedResponse.data && Array.isArray(parsedResponse.data)) {
+
+              
+            let data=parsedResponse.data;
+            var totalItems = data.length;
+            
+            document.getElementById('totalItems').textContent = `Total Gifts: ${totalItems}`;
+
+           $("#purchasedCount").empty().text(totalItems);
+            var counter = 0;
+            data.forEach(function(item) {
+                    let totalPrice = parseFloat(item.total_price) * parseInt(item.quantity);
+ let imgSrc = item.img_src ? item.img_src : 'https://cdn.shopify.com/s/files/1/0662/4061/0549/files/download_1.png?v=1719401071';
+                    $("#cardsContainer").append(`<div class="cardData"><div><img src="${imgSrc}" width="300px" /></div>
+                                                  <div class="d-flex" style="gap:20px;">
+                                                    <div>
+                                                    <h3>${item.name}</h3>
+                                                    <p><strong>Total Price:</strong> ${totalPrice.toFixed(2)}</p>
+                                                    <p><strong>Vendor:</strong> ${item.vendor}</p>
+                                                    <p><strong>Quantity:</strong> ${item.quantity}</p>
+                                                    <p><strong>Fulfillment Status:</strong> ${item.fulfillment_status}</p>
+                                                    <p><strong>Gift Note:</strong> ${item.note}</p>
+                                                    
+                                                    
+                                                    </div>
+                                                    <div >
+                                                         <h3>Shipping Address</h3>
+                                                         <p>${item.shipping_address.address1}</p>
+                                                         <p>${item.shipping_address.city}, ${item.shipping_address.province},  ${item.shipping_address.zip} </p>
+                                                    </div>
+                                                  </div>`);
+              counter++;
+        
+              if (counter === data.length) {
+                  
+                  hideLoaderorder();
+              }
+              
+      
+            });
+
+           if(totalItems == 0)
+           {   $(".giftTracker").remove();
+               $("#totalItems").remove();
+               $("#cardsContainer").empty().append(`<section class="NotAvailableWrapper">
+                                                <div class="CardLarge">
+                                                    <h1 class="NotAvailableCardTitle">{{ section.settings.NotAvailableCardTitle }} </h1>
+                                                    <p class="NotAvailableCardSubTitle">{{ section.settings.NotAvailableCardSubTitle }}</p><button
+                                                        class="btn CopyLinkBtn" data-url="${store_url}pages/my-registry/${get_registery_id}">COPY LINK </button>
+                                                </div>
+                                            </section>`);
+             
+           }
+          hideLoaderorder();
+
+           
+         
+          
+         
+           
+        } else {
+          console.error("Invalid response format");
+        }
+      } catch (error) {
+        console.error("Error parsing response:", error);
+      }
+    }).fail(function(jqXHR, textStatus, errorThrown) {
+      console.error("AJAX request failed:", textStatus, errorThrown);
+    });
+  }
+
+  
+
+  
+  function showLoader() {
+    
+    $('#loader-container-order').show();
+  }
+
+  function hideLoaderorder() {
+    $('#loader-container-order').hide();
+    
+  }
+
+  
+</script>
+{% schema %}
+  {
+    "name": "Gift Tracker",
+    "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo1",
+          "label": "Image Card"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading"
+        },
+        {
+          "type": "text",
+          "id": "NotAvailableCardTitle",
+          "label": "Not Available Card Title"
+        },
+        {
+          "type": "text",
+          "id": "NotAvailableCardSubTitle",
+          "label": "Not Available Card SubTitle"
+        }
+    ],
+    "presets": [
+    {
+      "name": "Gift Tracker",
+      "category": "Text"
+    }
+  ]
+  }
+{% endschema %}

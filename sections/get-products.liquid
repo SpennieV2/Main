@@ -1,0 +1,78 @@
+<div class="container-fluid">
+    <div class="loader-container" id="loader-container" style="display: none;">
+        <div class="loader"></div>
+    </div>
+    <div class="collection-hero color-background-1 gradient">
+        <div class="collection-hero__inner page-width  scroll-trigger animate--fade-in">
+            <div class="collection-hero__text-wrapper">
+                <h1 class="collection-hero__title">
+                    <span class="visually-hidden">Collection: </span>Bathroom<span class="product-count-show"
+                        style="text-transform: capitalize;"> (0 products
+                        )</span>
+
+
+                </h1>
+                <!-- Example search input -->
+
+
+                <!-- Example attribute filter checkbox -->
+
+                <input id="searchInputProduct" placeholder="Search By Product Name" style="appearance: none;
+                                                  background-color: rgb(var(--color-background));
+                                                  color: rgb(var(--color-foreground));
+                                                  font-size: 1.6rem;
+                                                  width: 100%;
+                                                  box-sizing: border-box;
+                                                  text-align: left;    
+                                                  margin-bottom: 2%;
+                                                  padding: 1.5rem;">
+
+                <div class="d-flex show_only_added" style="justify-content: end;gap:10px;">
+                    <label class="switch">
+                        <input type="checkbox" class="show_product">
+                        <span class="slider round"></span>
+                    </label>
+                    <label for="lastname" class="formbold-form-label" style="margin-top: auto;margin-bottom: auto;">
+                        VIEW ADDED ONLY</label>
+
+                </div>
+                <div class="collection-hero__description rte"></div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+{% javascript %}
+
+  
+ 
+$(document).ready(function () {
+
+  
+     
+});
+  
+ function showLoader() {
+    
+    $('#loader-container').show();
+  }
+
+  function hideLoader() {
+    $('#loader-container').hide();
+    
+  }
+
+ 
+
+{% endjavascript %}
+
+
+
+{% schema %}
+  {
+    "name": "Section name",
+    "settings": []
+  }
+{% endschema %}

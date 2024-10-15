@@ -1,0 +1,176 @@
+<style>
+    .buttons-links{
+          display: flex;
+          justify-content: center;
+          gap: 20px;
+          padding: 20px 20px 5px 20px;
+          align-items: center;
+    }
+
+    .buttons-links a{
+      width: 250px;
+      background: #000;
+      border: 1px solid #000;
+      border-radius: 0;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 500;
+      height: 50px;
+      letter-spacing: 1px;
+      line-height: 140%;
+      margin: 18px auto 0;
+      padding: 0;
+      text-align: center;
+      text-decoration: none;
+      text-transform: uppercase;
+      
+    }
+   .buttons-links2 a{
+      width: 250px;
+      background: #000;
+      border: 1px solid #000;
+      border-radius: 0;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 500;
+      height: 50px;
+      letter-spacing: 1px;
+      line-height: 140%;
+      margin: 3px auto 0;
+      padding: 0;
+      text-align: center;
+      text-decoration: none;
+      text-transform: uppercase;
+    
+    }
+    .buttons-links2{
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 5px 20px 20px 20px;
+      align-items: center;
+    }
+   .banner-parent{
+      height: 300px;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 14%;
+      padding-bottom: 14%;
+      background-color: #fbf6f0 !important;
+   }
+  .banner-parent h2{
+    font-size: 33px;
+    line-height: 41px;
+  }
+  .buttons-links a{
+      background: black;
+      color: white;
+      font-weight: 600;
+  }
+  .buttons-links2 a{
+    background: black;
+    color: white;
+    font-weight: 600;
+  }
+  .heading{
+        text-align: center;
+  }
+  .heading2{
+        font-weight: bolder;
+      font-style: italic;
+  }
+  @media screen and (max-width: 480px) {
+    .buttons-links { 
+      display: block!important;
+      text-align: center;
+    }
+    .banner-parent {
+        height: 430px;
+    }
+  }
+</style>
+<div class="banner-parent">
+  <h2 class="heading">
+   <span class="heading1" style="font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;font-size: 33px;
+    line-height: 41px;">{{ section.settings.heading }}</span><span class="heading2" style="font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;"> {{ section.settings.heading2 }}</span><br /><span style="font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;">{{ section.settings.heading3 }}</span>
+  </h2>
+  <div class="buttons-links">
+        <a href="{{ section.settings.shopUrl }}" class="button button--secondary">  {{ section.settings.shopNow }}</a>
+
+        <a href="{{ section.settings.registry_btn_link }}" class="button button--secondary">  {{ section.settings.registry_btn_text }}</a>
+  </div>
+  <div class="buttons-links2 btn-2">
+   {% if customer %}
+        <a href="pages/my-registry" class="button button--secondary">  My Registry</a>
+    {% else %}
+         <a href="{{ section.settings.startUrl }}" class="button button--secondary">  {{ section.settings.Start }}</a>
+         
+
+    {% endif %}
+  </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "SpennieBanner",
+  "settings": [
+    {
+      "type": "text",
+      "id": "registry_btn_text",
+      "label": "Button Text",
+      "default": "Register"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+     {
+      "type": "text",
+      "id": "heading2",
+      "label": "Heading"
+    },
+     {
+      "type": "text",
+      "id": "heading3",
+      "label": "Heading"
+    },
+    {
+      "type": "url",
+      "id": "registry_btn_link",
+      "label": "Button Link"
+    },
+      {
+      "type": "text",
+      "id": "shopNow",
+      "label": "shopNow Text",
+      "default": "Register"
+    },
+    {
+      "type": "url",
+      "id": "shopUrl",
+      "label": "shopUrl Link"
+    },
+        {
+      "type": "text",
+      "id": "Start",
+      "label": "Start Text",
+      "default": "Register"
+    },
+    {
+      "type": "url",
+      "id": "startUrl",
+      "label": "startUrl Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "SpennieBanner",
+      "category": "Button Settings"
+    }
+  ]
+}
+{% endschema %}

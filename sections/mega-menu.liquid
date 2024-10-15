@@ -1,0 +1,674 @@
+<style>
+ 
+
+body {
+  line-height: 1.5;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  overflow-x: hidden;
+}
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+:before,
+:after {
+  box-sizing: border-box;
+}
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.v-center {
+  align-items: center;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+/ new-header /
+.new-header {
+  display: block;
+  width: 100%;
+  position: relative;
+  z-index: 99;
+  padding: 15px;
+      background: #fbf6f0 !important;
+}
+  .new-header .menu > ul > li .sub-menu.mega-menu-column-4 > .list-item {
+    width: 14.28%;
+  }
+.new-header .item-left {
+  flex: 0 0 17%;
+  
+}
+.new-header .logo a {
+  font-size: 30px;
+  color: #000000;
+  font-weight: 700;
+  text-decoration: none;
+}
+.new-header .item-center {
+  flex: 0 0 66%;
+}
+.new-header .item-right {
+  flex: 0 0 17%;
+  display: flex;
+  justify-content: flex-end;
+}
+.new-header .item-right a {
+  text-decoration: none;
+  font-size: 16px;
+  color: #555555;
+  display: inline-block;
+  margin-left: 10px;
+  transition: color 0.3s ease;
+}
+.new-header .menu > ul > li {
+  display: inline-block;
+  line-height: 50px;
+  margin-left: 25px;
+}
+.new-header .menu > ul > li > a {
+  font-size: 15px;
+  font-weight: 500;
+  color: #000000;
+  position: relative;
+  text-transform: capitalize;
+  transition: color 0.3s ease;
+}
+.new-header .menu > ul > li .sub-menu {
+  position: absolute;
+  z-index: 500;
+  background-color: #fbf6f0!important;
+  box-shadow: -2px 2px 70px -25px rgba(0, 0, 0, 0.3);
+  padding: 20px 30px;
+  transition: all 0.5s ease;
+  margin-top: 25px;
+  opacity: 0;
+  visibility: hidden;
+}
+@media (min-width: 992px) {
+  .new-header .menu > ul > li.menu-item-has-children:hover .sub-menu {
+    margin-top: 0;
+    visibility: visible;
+    opacity: 1;
+  }
+}
+.new-header .menu > ul > li .sub-menu > ul > li {
+  line-height: 1;
+}
+.new-header .menu > ul > li .sub-menu > ul > li > a {
+  display: inline-block;
+  padding: 10px 0;
+  font-size: 15px;
+  color: #555555;
+  transition: color 0.3s ease;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+.new-header .menu > ul > li .single-column-menu {
+  min-width: 280px;
+  max-width: 350px;
+}
+.new-header .menu > ul > li .sub-menu.mega-menu > .list-item > ul > li {
+  line-height: 1;
+  display: block;
+}
+.new-header .menu > ul > li .sub-menu.mega-menu > .list-item > ul > li > a {
+  padding: 10px 0;
+  display: inline-block;
+  font-size: 15px;
+  color: #555555;
+  transition: color 0.3s ease;
+}
+.new-header .menu > ul > li .sub-menu.mega-menu {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.new-header .menu > ul > li .sub-menu.mega-menu-column-4 {
+ 
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px 15px;
+}
+.new-header .menu > ul > li .sub-menu.mega-menu-column-4 > .list-item {
+  / flex: 0 0 25%; /
+  width: 14.28%;
+
+  padding: 0 15px;
+}
+.new-header .menu > ul > li .sub-menu.mega-menu-column-4 > .list-item .title {
+  font-size: 16px;
+  color: #ea4636;
+  font-weight: 500;
+  line-height: 1;
+  padding: 10px 0;
+}
+.new-header
+  .menu
+  > ul
+  > li
+  .sub-menu.mega-menu-column-4
+  > .list-item.text-center
+  .title {
+  text-align: center;
+}
+.new-header .menu > ul > li .sub-menu.mega-menu-column-4 > .list-item img {
+  max-width: 100%;
+  width: 100%;
+  vertical-align: middle;
+  margin-top: 10px;
+  height: 300px;
+  object-fit: cover;
+}
+.new-header .menu > ul > li .sub-menu.mega-menu > .list-item > ul > li > a:hover,
+.new-header .menu > ul > li .sub-menu > ul > li > a:hover,
+.new-header .item-right a:hover,
+.new-header .menu > ul > li:hover > a {
+  color: #ea4636;
+}
+/ banner section /
+.banner-section {
+  background-image: url("../img/banner.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 700px;
+  width: 100%;
+  display: block;
+}
+.mobile-menu-head,
+.mobile-menu-trigger {
+  display: none;
+}
+
+/*responsive*/
+@media (max-width: 991px) {
+  .new-header .item-center {
+    order: 3;
+    width: 100%;
+  }
+  .new-header .item-left,
+  .new-header .item-right {
+    flex: 0 0 auto;
+  }
+  .v-center {
+    justify-content: space-between;
+  }
+  .new-header .mobile-menu-trigger {
+    display: flex;
+    height: 30px;
+    width: 30px;
+    margin-left: 15px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+  }
+  .new-header .mobile-menu-trigger span {
+    display: block;
+    height: 2px;
+    background-color: #333333;
+    width: 24px;
+    position: relative;
+  }
+  .new-header .mobile-menu-trigger span:before,
+  .new-header .mobile-menu-trigger span:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #333333;
+  }
+  .new-header .mobile-menu-trigger span:before {
+    top: -6px;
+  }
+  .new-header .mobile-menu-trigger span:after {
+    top: 6px;
+  }
+  .new-header .item-right {
+    align-items: center;
+  }
+
+  .new-header .menu {
+    position: fixed;
+    width: 320px;
+    background-color: #fbf6f0!important;
+    left: 0;
+    top: 0;
+    height: 100%;
+    overflow: hidden;
+    transform: translate(-100%);
+    transition: all 0.5s ease;
+    z-index: 1099;
+  }
+  .new-header .menu.active {
+    transform: translate(0%);
+  }
+  .new-header .menu > ul > li {
+    line-height: 1;
+    margin: 0;
+    display: block;
+  }
+  .new-header .menu > ul > li > a {
+    line-height: 50px;
+    height: 50px;
+    padding: 0 50px 0 15px;
+    display: block;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  .new-header .menu > ul > li > a i {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    top: 0;
+    right: 0;
+    text-align: center;
+    line-height: 50px;
+    transform: rotate(-90deg);
+  }
+  .new-header .menu .mobile-menu-head {
+    display: flex;
+    height: 50px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 501;
+    position: sticky;
+    background-color: #fbf6f0!important;
+    top: 0;
+  }
+  .new-header .menu .mobile-menu-head .go-back {
+    height: 50px;
+    width: 50px;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    line-height: 50px;
+    text-align: center;
+    color: #000000;
+    font-size: 16px;
+    display: none;
+  }
+  .new-header .menu .mobile-menu-head.active .go-back {
+    display: block;
+  }
+  .new-header .menu .mobile-menu-head .current-menu-title {
+    font-size: 15px;
+    font-weight: 500;
+    color: #000000;
+  }
+  .new-header .menu .mobile-menu-head .mobile-menu-close {
+    height: 50px;
+    width: 50px;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    line-height: 50px;
+    text-align: center;
+    color: #000000;
+    font-size: 25px;
+  }
+  .new-header .menu .menu-main {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  .new-header .menu > ul > li .sub-menu.mega-menu,
+  .new-header .menu > ul > li .sub-menu {
+    visibility: visible;
+    opacity: 1;
+    position: absolute;
+    box-shadow: none;
+    margin: 0;
+    padding: 15px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding-top: 65px;
+    max-width: none;
+    min-width: auto;
+    display: none;
+    transform: translateX(0%);
+    overflow-y: auto;
+  }
+  .new-header .menu > ul > li .sub-menu.active {
+    display: block;
+  }
+  @keyframes slideLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0%);
+    }
+  }
+  @keyframes slideRight {
+    0% {
+      opacity: 1;
+      transform: translateX(0%);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+  }
+  .new-header .menu > ul > li .sub-menu.mega-menu-column-4 > .list-item img {
+    margin-top: 0;
+  }
+  .new-header
+    .menu
+    > ul
+    > li
+    .sub-menu.mega-menu-column-4
+    > .list-item.text-center
+    .title {
+    margin-bottom: 20px;
+  }
+  .new-header
+    .menu
+    > ul
+    > li
+    .sub-menu.mega-menu-column-4
+    > .list-item.text-center:last-child
+    .title {
+    margin-bottom: 0px;
+  }
+  .new-header .menu > ul > li .sub-menu.mega-menu-column-4 > .list-item {
+    width: 100%;
+    padding: 0px;
+  }
+  .new-header .menu > ul > li .sub-menu > ul > li > a,
+  .new-header .menu > ul > li .sub-menu.mega-menu > .list-item > ul > li > a {
+    display: block;
+  }
+  .new-header .menu > ul > li .sub-menu.mega-menu > .list-item > ul {
+    margin-bottom: 15px;
+  }
+  .menu-overlay {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1098;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.5s ease;
+  }
+  .menu-overlay.active {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+</style>
+   <new-header class="new-header">
+      <div class="container">
+        <div class="row v-center">
+          <div class="header-item item-left">
+            <div class="logo">
+              <a href="#">logo</a>
+            </div>
+          </div>
+          <!-- menu start here -->
+          <div class="header-item item-center">
+            <div class="menu-overlay"></div>
+            <nav class="menu">
+              <div class="mobile-menu-head">
+                <div class="go-back"><i class="fa fa-angle-left"></i></div>
+                <div class="current-menu-title"></div>
+                <div class="mobile-menu-close">&times;</div>
+              </div>
+              <ul class="menu-main">
+                <li>
+                  <a href="#">Home</a>
+                </li>
+                
+                <li class="menu-item-has-children">
+                  <a href="#">Shop <i class="fa fa-angle-down"></i></a>
+                  <div class="sub-menu mega-menu mega-menu-column-4">
+                    <div class="list-item">
+                      <h4 class="title">BATHROOM</h4>
+                      <ul>
+                        <li><a href="#">T-Shirts</a></li>
+                        <li><a href="#">Jeans</a></li>
+                        <li><a href="#">Suit</a></li>
+                        <li><a href="#">Kurta</a></li>
+                        <li><a href="#">Watch</a></li>
+                      </ul>
+                    </div>
+                    <div class="list-item">
+                      <h4 class="title">BEDROOM</h4>
+                      <ul>
+                        <li><a href="#">Moisturizer</a></li>
+                        <li><a href="#">Face powder</a></li>
+                        <li><a href="#">Lipstick</a></li>
+                      </ul>
+                    </div>
+                    <div class="list-item">
+                      <h4 class="title">DECOR</h4>
+                      <ul>
+                        <li><a href="#">Sarees</a></li>
+                        <li><a href="#">Sandals</a></li>
+                        <li><a href="#">Watchs</a></li>
+                        <li><a href="#">Shoes</a></li>
+                      </ul>
+                    </div>
+                    <div class="list-item">  
+                      <h4 class="title">DINING ROOM</h4>
+                      <ul>
+                        <li><a href="#">Chairs</a></li>
+                        <li><a href="#">Tables</a></li>
+                        <li><a href="#">Doors</a></li>
+                        <li><a href="#">Bed</a></li>
+                      </ul>
+                    </div>
+                    <div class="list-item">
+                      <h4 class="title">Kitchen</h4>
+                      <ul>
+                        <li><a href="#">Kettle</a></li>
+                        <li><a href="#">Toaster</a></li>
+                        <li><a href="#">Dishwasher</a></li>
+                        <li><a href="#">Microwave oven</a></li>
+                        <li><a href="#">Pitcher</a></li>
+                        <li><a href="#">Blender</a></li>
+                        <li><a href="#">Colander</a></li>
+                        <li><a href="#">Tureen</a></li>
+                        <li><a href="#">Cookware</a></li>
+                      </ul>
+                    </div>
+                    <div class="list-item">
+                      <h4 class="title">PETS</h4>
+                      <ul>
+                        <li><a href="#">Kettle</a></li>
+                        <li><a href="#">Toaster</a></li>
+                        <li><a href="#">Dishwasher</a></li>
+                        <li><a href="#">Microwave oven</a></li>
+                        <li><a href="#">Pitcher</a></li>
+                        <li><a href="#">Blender</a></li>
+                        <li><a href="#">Colander</a></li>
+                        <li><a href="#">Tureen</a></li>
+                        <li><a href="#">Cookware</a></li>
+                      </ul>
+                    </div>
+                     <div class="list-item">
+                      <h4 class="title">SHOES & APPARELS</h4>
+                      <ul>
+                        <li><a href="#">Kettle</a></li>
+                        <li><a href="#">Toaster</a></li>
+                        <li><a href="#">Dishwasher</a></li>
+                        <li><a href="#">Microwave oven</a></li>
+                        <li><a href="#">Pitcher</a></li>
+                        <li><a href="#">Blender</a></li>
+                        <li><a href="#">Colander</a></li>
+                        <li><a href="#">Tureen</a></li>
+                        <li><a href="#">Cookware</a></li>
+                      </ul>
+                    </div>
+                    
+                  </div>
+                </li>
+                <li class="menu-item-has-children">
+                  <a href="#">Blog <i class="fas fa-angle-down"></i></a>
+                 
+                </li>
+                <li>
+                  {%- if shop.customer_accounts_enabled -%}
+                      <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="header__icon header__icon--account link focus-inset{% if section.settings.menu != blank %} small-hide{% endif %}">
+                        {% render 'icon-account' %}
+                        <span class="visually-hidden">
+                          {%- liquid
+                            if customer
+                              echo 'customer.account_fallback' | t
+                            else
+                              echo 'customer.log_in' | t
+                            endif
+                          -%}
+                        </span>
+                      </a>
+                  {%- endif -%}
+                  
+                </li>
+                <li>
+                  {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when '@app' -%}
+            {% render block %}
+        {%- endcase -%}
+      {%- endfor -%}
+      
+
+      <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
+        {%- liquid
+          if cart == empty
+            render 'icon-cart-empty'
+          else
+            render 'icon-cart'
+          endif
+        -%}
+        <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
+        {%- if cart != empty -%}
+          <div class="cart-count-bubble">
+            {%- if cart.item_count < 100 -%}
+              <span aria-hidden="true">{{ cart.item_count }}</span>
+            {%- endif -%}
+            <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+          </div>
+        {%- endif -%}
+      </a>
+                </li>
+                 
+
+      
+                
+              </ul>
+
+  
+            </nav>
+          </div>
+          <!-- menu end here -->
+          <div class="header-item item-right">
+            <a href="#"><i class="fas fa-search"></i></a>
+            <a href="#"><i class="far fa-heart"></i></a>
+            <a href="#"><i class="fas fa-shopping-cart"></i></a>
+            <!-- mobile menu trigger -->
+            <div class="mobile-menu-trigger">
+              <span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </new-header>
+
+<script>
+    
+
+ const menu = document.querySelector(".menu");
+ const menuMain = menu.querySelector(".menu-main");
+ const goBack = menu.querySelector(".go-back");
+ const menuTrigger = document.querySelector(".mobile-menu-trigger");
+ const closeMenu = menu.querySelector(".mobile-menu-close");
+ let subMenu;
+ menuMain.addEventListener("click", (e) =>{
+ 	if(!menu.classList.contains("active")){
+ 		return;
+ 	}
+   if(e.target.closest(".menu-item-has-children")){
+   	 const hasChildren = e.target.closest(".menu-item-has-children");
+      showSubMenu(hasChildren);
+   }
+ });
+ goBack.addEventListener("click",() =>{
+ 	 hideSubMenu();
+ })
+ menuTrigger.addEventListener("click",() =>{
+ 	 toggleMenu();
+ })
+ closeMenu.addEventListener("click",() =>{
+ 	 toggleMenu();
+ })
+ document.querySelector(".menu-overlay").addEventListener("click",() =>{
+ 	toggleMenu();
+ })
+ function toggleMenu(){
+ 	menu.classList.toggle("active");
+ 	document.querySelector(".menu-overlay").classList.toggle("active");
+ }
+ function showSubMenu(hasChildren){
+    subMenu = hasChildren.querySelector(".sub-menu");
+    subMenu.classList.add("active");
+    subMenu.style.animation = "slideLeft 0.5s ease forwards";
+    const menuTitle = hasChildren.querySelector("i").parentNode.childNodes[0].textContent;
+    menu.querySelector(".current-menu-title").innerHTML=menuTitle;
+    menu.querySelector(".mobile-menu-head").classList.add("active");
+ }
+
+ function  hideSubMenu(){  
+    subMenu.style.animation = "slideRight 0.5s ease forwards";
+    setTimeout(() =>{
+       subMenu.classList.remove("active");	
+    },300); 
+    menu.querySelector(".current-menu-title").innerHTML="";
+    menu.querySelector(".mobile-menu-head").classList.remove("active");
+ }
+ 
+ window.onresize = function(){
+ 	if(this.innerWidth >991){
+ 		if(menu.classList.contains("active")){
+ 			toggleMenu();
+ 		}
+
+ 	}
+ }
+
+
+</script>
+
+
+{% schema %}
+{
+  "name": "Mega-Menu",
+  "blocks": [],
+  
+  "presets": [
+    {
+      "name": "Mega-Menu",
+      "category": "Text"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,109 @@
+<style>
+  .signup_LinkText__4MRRe:hover{
+    color: white!important;
+  }
+  .BtnDark:hover{
+    color: white!important;
+  }
+  .li_a{
+    color: #000;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1.75385px;
+    line-height: 18px;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  @media screen and (max-width: 768px) {
+   .FooterRow{
+      display: block!important;
+    }
+    .FooterRight{
+      width:100%!important;
+    }
+    .FooterLeft{
+      width:100%!important;
+    }
+    .FooterLinks{
+       display: block!important;
+       text-align: left!important;
+    }
+ }
+  
+</style>
+<div class="" style="height: 63vh;text-align: center;padding-top: 15vh;text-align: center;
+    max-width: 406px;
+    margin: auto;
+">
+    <div class="signup_head__3-mHi">
+        <h1 class="signup_title__zh81N">{{ section.settings.label1 }}</h1>
+        <p class="signup_Subtitle__Gmgcd" style="color: #000;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 39px;
+    margin-bottom: 25px;
+    text-align: center;">{{ section.settings.label2 }}</p>
+    </div>
+    <div class=" " style="display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+    padding: 1rem 3rem;
+    cursor: pointer;
+    font: inherit;background: black; color: white;font-weight: 600;margin: 20px 0;">
+      <a style="font-size: 1.5rem;letter-spacing: .1rem;background: black; color: white;font-weight: 600;" class="btn btn-flat BtnDark BtnLarge w-100" href="{{ section.settings.label1_url }}">{{ section.settings.label1_text }}</a>
+    </div>
+      <div class="">{{ section.settings.label3 }} <a class="signup_LinkText__4MRRe" href="{{ section.settings.label2_url }}">{{ section.settings.label2_text }}</a></div>
+</div>
+
+{% schema %}
+{
+  "name": "Signup",
+  "blocks": [],
+  "settings": [
+   
+    {
+      "type": "text",
+      "id": "label1",
+      "label": "Heading 1"
+    },
+    
+    {
+      "type": "text",
+      "id": "label2",
+      "label": "Heading 2"
+    },
+    {
+      "type": "text",
+      "id": "label3",
+      "label": "Heading 3"
+    },
+    {
+      "type": "text",
+      "id": "label1_url",
+      "label": "Label 1 Url"
+    },
+    {
+      "type": "text",
+      "id": "label1_text",
+      "label": "Label 1"
+    },
+    {
+      "type": "text",
+      "id": "label2_url",
+      "label": "Label 2 Url"
+    },
+    {
+      "type": "text",
+      "id": "label2_text",
+      "label": "Label 2"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom-footer",
+      "category": "Text"
+    }
+  ]
+}
+{% endschema %}

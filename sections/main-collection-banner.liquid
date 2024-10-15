@@ -1,0 +1,245 @@
+{% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
+{{ 'component-collection-hero.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  @media screen and (max-width: 749px) {
+    .collection-hero--with-image .collection-hero__inner {
+      padding-bottom: calc({{ settings.media_shadow_vertical_offset | at_least: 0 }}px + 2rem);
+    }
+  }
+
+  .switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+  .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #fcbe99;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+ 
+
+    
+
+    .regis_quantity {
+      width: 50px;
+      font-size: 1em;
+      text-align: center;
+    }
+
+    .qty-left {
+      width: 37px;
+      flex-shrink: 0;
+      font-size: 1.8rem;
+      /* border: 0; */
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgb(var(--color-foreground));
+      background-color:white;
+      padding: 0;
+      border: 1px solid black;
+      border-right-width: 0px;
+      border-radius: unset;
+
+    }
+   .qty-right {
+      width: 37px;
+      flex-shrink: 0;
+      font-size: 1.8rem;
+      /* border: 0; */
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgb(var(--color-foreground));
+      background-color:white;
+      padding: 0;
+      border: 1px solid black;
+      border-left-width: 0px;
+      border-radius: unset;
+
+    }
+    .add_to_registry{
+      color: black;
+      background: white;
+    }
+   
+ .custom-button {
+            background: transparent;
+            padding: 5px 10px;
+            border: 1px solid black;
+        }
+        .custom-button a {
+            color: black;
+            text-decoration: none;
+        }
+   
+ 
+{%- endstyle -%}
+<div class="container-fluid">
+<div class="loader-container" id="loader-container">
+   <div class="loader"></div>
+</div> 
+<div class="collection-hero{% if section.settings.show_collection_image and collection.image %} collection-hero--with-image{% endif %} color-{{ section.settings.color_scheme }} gradient">
+  <div class="collection-hero__inner page-width {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+    <div class="collection-hero__text-wrapper">
+      <h1 class="collection-hero__title">
+        <span class="visually-hidden">{{ 'sections.collection_template.title' | t }}: </span>
+        {{- collection.title | escape -}} 
+        <span class="product-count-show" style="text-transform: capitalize;"></span>
+
+         
+      </h1>
+     <!-- Example search input -->
+
+
+<!-- Example attribute filter checkbox -->
+
+      <input id="searchInputProduct" placeholder="Search By Product Name" style="appearance: none;
+                                              background-color: rgb(var(--color-background));
+                                              color: rgb(var(--color-foreground));
+                                              font-size: 1.6rem;
+                                              width: 100%;
+                                              box-sizing: border-box;
+                                              text-align: left;    
+                                              margin-bottom: 2%;
+                                              padding: 1.5rem;" />
+      
+            <button id="products-button" class="custom-button">
+        <a href="/collections/all">Go to all Products</a>
+    </button>
+      {% if customer %}
+       <div class="d-flex d-none show_only_added" style="justify-content: end;gap:10px;">
+                   <label class="switch">
+                      <input type="checkbox" class="show_product">
+                      <span class="slider round"></span>
+                    </label>
+                    <label for="lastname" class="formbold-form-label" style="margin-top: auto;margin-bottom: auto;"> VIEW ADDED ONLY</label>
+                    
+                </div>
+     {% endif %} 
+
+      {%- if section.settings.show_collection_description -%}
+        <div class="collection-hero__description rte">{{ collection.description }}</div>
+      {%- endif -%}
+    </div>
+
+    {%- if section.settings.show_collection_image and collection.image -%}
+      <div class="collection-hero__image-container media gradient">
+        <img
+          srcset="
+            {%- if collection.image.width >= 165 -%}{{ collection.image | image_url: width: 165 }} 165w,{%- endif -%}
+            {%- if collection.image.width >= 360 -%}{{ collection.image | image_url: width: 360 }} 360w,{%- endif -%}
+            {%- if collection.image.width >= 535 -%}{{ collection.image | image_url: width: 535 }} 535w,{%- endif -%}
+            {%- if collection.image.width >= 750 -%}{{ collection.image | image_url: width: 750 }} 750w,{%- endif -%}
+            {%- if collection.image.width >= 1070 -%}{{ collection.image | image_url: width: 1070 }} 1070w,{%- endif -%}
+            {%- if collection.image.width >= 1500 -%}{{ collection.image | image_url: width: 1500 }} 1500w,{%- endif -%}
+            {{ collection.image | image_url }} {{ collection.image.width }}w
+          "
+          src="{{ collection.image | image_url: width: 750 }}"
+          sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc(50vw - 130px), calc(50vw - 55px)"
+          alt=""
+          width="{{ collection.image.width }}"
+          height="{{ collection.image.height }}"
+        >
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+ <script>
+        // Function to check the current URL and display or hide the button
+        function checkURL() {
+            var currentURL = window.location.href;
+            var button = document.getElementById('products-button');
+            if (currentURL === 'https://spennie.com/collections/all') {
+                button.style.display = 'none'; // Hide the button
+            } else {
+                button.style.display = 'block'; // Show the button
+            }
+        }
+
+        // Run the checkURL function on page load
+        window.onload = checkURL;
+    </script>
+{% schema %}
+{
+  "name": "t:sections.main-collection-banner.name",
+  "class": "section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.main-collection-banner.settings.paragraph.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_collection_description",
+      "default": true,
+      "label": "t:sections.main-collection-banner.settings.show_collection_description.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_collection_image",
+      "default": false,
+      "label": "t:sections.main-collection-banner.settings.show_collection_image.label",
+      "info": "t:sections.main-collection-banner.settings.show_collection_image.info"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "background-1"
+    }
+  ]
+}
+{% endschema %}

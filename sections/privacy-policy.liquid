@@ -1,0 +1,261 @@
+<style>
+  body{
+        background: #fff!important;
+
+  }
+  .PrivacyWrapper .PrivacyText {
+    background: #fff;
+    box-sizing: border-box;
+    margin: 0 auto;
+    max-width: 100%;
+    padding: 0 60px 30px;
+    width: 1200px;
+}
+  .PrivacyWrapper {
+    min-height: 70vh;
+    padding: 50px 0 80px;
+}
+  .PrivacyWrapper .PrivacyText .PrivacyTitle {
+    color: #000;
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 46px;
+    margin: 20px 0;
+    padding: 0;
+}
+  .PrivacyWrapper .PrivacyText .PrivacySubtitle {
+    color: #000;
+    font-size: 16px;
+    line-height: 24px;
+    margin: 0 0 20px;
+    padding: 0;
+}
+  .PrivacyWrapper .PrivacyText p {
+    color: #000;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: .01em;
+    line-height: 24px;
+    margin: 0 0 30px;
+}
+  .PrivacyWrapper .PrivacyText .PrivacyHeading {
+    color: #000;
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 36px;
+    margin: 20px 0 0;
+    padding: 0;
+    text-decoration: underline;
+}
+  .PrivacyWrapper .PrivacyText p {
+    color: #000;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: .01em;
+    line-height: 24px;
+    margin: 0 0 30px;
+}
+  .bold {
+    font-weight: 700;
+}
+</style>
+<main class="Main">
+    <section class="PrivacyWrapper">
+        <div class="PrivacyText">
+            <h1 class="PrivacyTitle">{{ section.settings.PrivacyTitle }}</h1>
+            <h5 class="PrivacySubtitle">{{ section.settings.PrivacySubtitle }}</h5>
+            <p>{{ section.settings.Privacypara }}</p>
+            <h4 class="PrivacyHeading">{{ section.settings.PrivacyHeading1 }}</h4>
+            <p>{{ section.settings.Privacypara1 }}</p>
+
+            <h4 class="PrivacyHeading">{{ section.settings.PrivacyHeading2 }}</h4>
+
+            <p>{{ section.settings.Privacypara2 }}</p>
+            <h4 class="PrivacyHeading">{{ section.settings.PrivacyHeading3 }}</h4>
+            <p>{{ section.settings.Privacypara3 }}</p>
+            <h4 class="PrivacyHeading">{{ section.settings.PrivacyHeading4 }}</h4>
+           <p>{{ section.settings.Privacypara4 }}</p>
+            <h4 class="PrivacyHeading">{{ section.settings.PrivacyHeading5 }}</h4>
+           <p>{{ section.settings.Privacypara5 }}</p>
+            <h4 class="PrivacyHeading">{{ section.settings.PrivacyHeading6 }}</h4>
+            <p>{{ section.settings.Privacypara6 }}</p>
+            <h4 class="PrivacyHeading">{{ section.settings.PrivacyHeading7 }}</h4>
+           <p>{{ section.settings.Privacypara7 }}</p>
+            <h4 class="PrivacyHeading">{{ section.settings.PrivacyHeading8 }}</h4>
+            <ol class="OrderListAlphabtics">
+              {{ section.settings.Privacypara8 }}
+            </ol>
+            <h4 class="PrivacyHeading">{{ section.settings.PrivacyHeading9 }}</h4>
+            <p>{{ section.settings.Privacypara9 }}</p>
+            <h4 class="PrivacyHeading">{{ section.settings.PrivacyHeading10 }}</h4>
+            <p>{{ section.settings.Privacypara10 }}</p>
+            <h4 class="PrivacyHeading">{{ section.settings.PrivacyHeading11 }}</h4>
+            <p>{{ section.settings.Privacypara11 }}</p>
+            <h4 class="PrivacyHeading">{{ section.settings.PrivacyHeading12 }}</h4>
+            <p>{{ section.settings.Privacypara12 }}</p>
+            <h4 class="PrivacyHeading">{{ section.settings.PrivacyHeading13 }}</h4>
+            <p>{{ section.settings.Privacypara13 }}</p>
+        </div>
+    </section>
+</main>
+
+{% schema %}
+  {
+    "name": "Privacy-Policy",
+    "settings": [
+        {
+          "type": "text",
+          "id": "PrivacyTitle",
+          "label": "Privacy Title"
+        },
+        {
+          "type": "text",
+          "id": "PrivacySubtitle",
+          "label": "Privacy Subtitle"
+        },
+        {
+          "type": "richtext",
+          "id": "Privacypara",
+          "label": "Privacy paragraph"
+        },
+        {
+          "type": "text",
+          "id": "PrivacyHeading1",
+          "label": "PrivacyHeading 1"
+        },
+        {
+          "type": "richtext",
+          "id": "Privacypara1",
+          "label": "Privacy paragraph 1"
+        },
+        {
+          "type": "text",
+          "id": "PrivacyHeading2",
+          "label": "PrivacyHeading 2"
+        },
+       {
+          "type": "richtext",
+          "id": "Privacypara2",
+          "label": "Privacy paragraph 2"
+        },
+        {
+          "type": "text",
+          "id": "PrivacyHeading3",
+          "label": "PrivacyHeading 3"
+        },
+        {
+          "type": "richtext",
+          "id": "Privacypara3",
+          "label": "Privacy paragraph 3"
+        },
+        {
+          "type": "text",
+          "id": "PrivacyHeading4",
+          "label": "PrivacyHeading 4"
+        },
+        {
+          "type": "richtext",
+          "id": "Privacypara4",
+          "label": "Privacy paragraph 4"
+        },
+        {
+          "type": "text",
+          "id": "PrivacyHeading5",
+          "label": "PrivacyHeading 5"
+        } ,
+        {
+          "type": "richtext",
+          "id": "Privacypara5",
+          "label": "Privacy paragraph 5"
+        },
+        {
+          "type": "text",
+          "id": "PrivacyHeading6",
+          "label": "PrivacyHeading 6"
+        },
+        {
+          "type": "richtext",
+          "id": "Privacypara6",
+          "label": "Privacy paragraph 6"
+        },
+        {
+          "type": "text",
+          "id": "PrivacyHeading7",
+          "label": "PrivacyHeading 7"
+        },
+        {
+          "type": "richtext",
+          "id": "Privacypara7",
+          "label": "Privacy paragraph 7"
+        },
+        {
+          "type": "text",
+          "id": "PrivacyHeading8",
+          "label": "PrivacyHeading 8"
+        },
+        {
+          "type": "richtext",
+          "id": "Privacypara8",
+          "label": "Privacy paragraph 8 "
+        },
+        {
+          "type": "text",
+          "id": "PrivacyHeading9",
+          "label": "PrivacyHeading 9"
+        },
+        { 
+          "type": "richtext",
+          "id": "Privacypara9",
+          "label": "Privacy paragraph 9"
+        },
+        {
+          "type": "text",
+          "id": "PrivacyHeading10",
+          "label": "PrivacyHeading 10"
+        } ,
+        {
+          "type": "richtext",
+          "id": "Privacypara10",
+          "label": "Privacy paragraph 10"
+        },
+        {
+          "type": "text",
+          "id": "PrivacyHeading11",
+          "label": "PrivacyHeading 11"
+        },
+        {
+          "type": "richtext",
+          "id": "Privacypara11",
+          "label": "Privacy paragraph 11"
+        },
+        {
+          "type": "text",
+          "id": "PrivacyHeading12",
+          "label": "PrivacyHeading 12"
+        },
+        {
+          "type": "richtext",
+          "id": "Privacypara12",
+          "label": "Privacy paragraph 12"
+        },
+        {
+          "type": "text",
+          "id": "PrivacyHeading13",
+          "label": "PrivacyHeading 13"
+        },
+       {
+          "type": "richtext",
+          "id": "Privacypara13",
+          "label": "Privacy paragraph 13"
+        }
+      
+    ],
+    "blocks": [],
+    "presets": [
+      {
+        "name": "Find-Registry",
+        "category": "Text"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,244 @@
+
+<div class="formbold-main-wrapper">
+  <!-- Author: FormBold Team -->
+  <!-- Learn More: https://formbold.com -->
+  <div class="formbold-form-wrapper">
+    <form action="https://formbold.com/s/FORM_ID" method="POST">
+        <div class="formbold-steps">
+            <ul>
+                <li class="formbold-step-menu1 ">
+                    <span>1</span>
+                    Your Information 
+                </li>
+                <li class="formbold-step-menu2 active">
+                    <span>2</span>
+                    Partner's Information  
+                </li>
+                <li class="formbold-step-menu3">
+                    <span>3</span>
+                    Wedding Details
+                </li>
+            </ul>
+        </div>
+
+        <div class=" formbold-form-step-1">
+          <div class="formbold-input-flex">
+            <div>
+                <label for="firstname" class="formbold-form-label"> First name </label>
+                <input
+                type="text"
+                value="{{ customer.first_name }}"
+                name="firstname"
+                placeholder="First Name"
+                id="firstname"
+                class="formbold-form-input"
+                />
+               <input
+                type="text"
+                value="{{ customer.id }}"
+                name="firstname"
+                placeholder="First Name"
+                id="customer-id"
+                class="formbold-form-input"
+                />
+
+            
+            </div>
+            <div>
+                <label for="lastname" class="formbold-form-label"> Last name </label>
+                <input
+                type="text"
+                name="lastname"
+                value="{{ customer.last_name }}"
+                placeholder="Last Name"
+                id="lastname"
+                class="formbold-form-input"
+                />
+            </div>
+          </div>
+  
+          
+  
+          <div>
+              <label for="address" class="formbold-form-label"> Email </label>
+              <input
+              type="email"
+              name="Email"
+              id="Email"
+              value="{{ customer.email }}"
+              placeholder="Email"
+              class="formbold-form-input"
+              />
+          </div>
+           <div>
+              <label for="address" class="formbold-form-label"> Phone </label>
+              <input
+              type="text"
+              name="Email"
+              id="Email"
+              value="{{ customer.note }}"
+              placeholder="Phone"
+              class="formbold-form-input"
+              />
+          </div>
+           <div>
+              <label for="address" class="formbold-form-label"> Password </label>
+              <input
+              type="password"
+              name="Email"
+              id="Email"
+              placeholder="Password"
+              class="formbold-form-input"
+              />
+          </div>
+        </div>
+
+        <div class="active formbold-form-step-2 ">
+           <div class="formbold-input-flex">
+            <div>
+                <label for="firstname" class="formbold-form-label"> First name </label>
+                <input
+                type="text"
+                name="firstname"
+                placeholder="First Name"
+                id="firstname-second"
+                class="formbold-form-input"
+                value=""
+                />
+            </div>
+            <div>
+                <label for="lastname" class="formbold-form-label"> Last name </label>
+                <input
+                type="text"
+                name="lastname"
+                placeholder="Last Name"
+                id="lastname-second"
+                class="formbold-form-input"
+                />
+            </div>
+          </div>
+  
+          
+  
+         
+           <div>
+              <label for="address" class="formbold-form-label"> Phone </label>
+           
+
+              <div class="input-group d-flex mb-3">
+
+                
+                  <select style="width: 15%;" class=" code-select  formbold-form-input" name="phone_code"aria-label="Default select example">
+                      
+                      <option value="+1">+1</option>
+                      <option value="+92">+92</option>
+                      
+                      <option value="+44">+44</option>
+                  </select>
+                  <input style="width: 85%;" required type="text" id="phoneInput" class=" formbold-form-input" name="phone_number" aria-label="Text input with dropdown button" />
+              </div>      
+          </div>
+        </div>
+
+        <div class="formbold-form-step-3">
+          <div class="formbold-form-confirm">
+            <h3>
+              When is the special day?.
+            </h3>
+             <div class="formbold-input-flex">
+                <div>
+                    <label for="firstname" class=" formbold-form-label"> Month </label>
+                    
+                   <select  class="formbold-form-input event-month event-date" id='gMonth2' name="event-month"   style="padding: 18px 22px">
+                      <option value='' selected>--Select Month--</option>
+                      <option value='1'>Janaury</option>
+                      <option value='2'>February</option>
+                      <option value='3'>March</option>
+                      <option value='4'>April</option>
+                      <option value='5'>May</option>
+                      <option value='6'>June</option>
+                      <option value='7'>July</option>
+                      <option value='8'>August</option>
+                      <option value='9'>September</option>
+                      <option value='10'>October</option>
+                      <option value='11'>November</option>
+                      <option value='12'>December</option>
+                    </select> 
+                </div>
+                <div>
+                    <label for="lastname" class="formbold-form-label">Day  </label>
+                    <input
+                    type="number"
+                    name="event-day"
+                    placeholder="Day"
+                    id="lastname"
+                    class="formbold-form-input  event-date"
+                    max="31"
+                    min="01"
+                    pattern="^\d*(\.\d{0,2})?$"
+                    />
+                </div>
+                <div>
+                    <label for="lastname" class="formbold-form-label"> Year </label>
+                    <input
+                    type="number"  name="event-year" placeholder="Year" min="2024" max="2099" step="1" value="2024"
+                    class="formbold-form-input event-year event-date"
+                    />
+                </div>
+             </div>
+             <div class="" style="justify-content: center;">
+                <label class="container-checkbox checkbox-label">
+                  <input type="checkbox"  id="check_id">We haven't decided yet
+                </label>
+               
+             </div>
+
+
+            
+            
+         </div>
+
+        </div>
+
+        <div class="formbold-form-btn-wrapper">
+         
+
+          <button type="button" class="formbold-btn" active="2">
+                Next Step
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_1675_1807)">
+              <path d="M10.7814 7.33312L7.20541 3.75712L8.14808 2.81445L13.3334 7.99979L8.14808 13.1851L7.20541 12.2425L10.7814 8.66645H2.66675V7.33312H10.7814Z" fill="white"/>
+              </g>
+              <defs>
+              <clipPath id="clip0_1675_1807">
+              <rect width="16" height="16" fill="white"/>
+              </clipPath>
+              </defs>
+              </svg>
+          </button>
+        </div>
+    </form>
+  </div>
+</div>
+
+<style>
+
+ input[type="checkbox"] {
+   width: 2.2em!important;
+   height: 2.2em;
+   -moz-appearance: none;
+   border: 1px solid #777;
+   border-radius: 3px;
+   background-color: #eee;
+   vertical-align: bottom;
+}
+input[type="checkbox"]:active {
+   background-color: #ddd;
+}
+input[type="checkbox"]:checked {
+   background-image: url("http://pngimages.net/sites/default/files/tick-off-png-image-97012.png");
+   background-size: contain;
+}
+
+</style> 
+
