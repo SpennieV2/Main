@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
             products.forEach(product => {
                 showLoader();
                 const myHeaders = new Headers();
-                myHeaders.append("X-Shopify-Access-Token", "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");
+                
 
                 const requestOptions = {
                     method: "GET",
@@ -507,7 +507,7 @@ $(document).ready(function(){
       
         let api_url=`https://spennieapp.skylinxtech.co/api/search-email/${get_email}`;
         const myHeaders = new Headers();
-        myHeaders.append("X-Shopify-Access-Token", "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");
+        
         
         const requestOptions = {
           method: "GET",
@@ -555,7 +555,7 @@ function createCustomer(firstname,lastname,Email,Phone,Password,active,this_var)
  
   var myHeaders = new Headers();
   
-  myHeaders.append("X-Shopify-Access-Token", "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");
+  
   myHeaders.append("Content-Type", "application/json");
   
   var raw = JSON.stringify({
